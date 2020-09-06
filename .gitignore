@@ -28,5 +28,5 @@ obj/
 [Rr]elease*/
 _ReSharper*/
 [Tt]est[Rr]esult*
-#!MExprDll.dll
-#!SkladGP.exe
+!MExprDll.dll
+!SkladGP.exe

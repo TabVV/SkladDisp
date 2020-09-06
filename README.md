@@ -1,0 +1,2 @@
+# SkladDisp
+Client for Belarus 

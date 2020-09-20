@@ -1,4 +1,4 @@
-using System;
+п»їusing System;
 using System.Collections.Generic;
 using System.Text;
 using System.Data;
@@ -47,13 +47,13 @@ namespace SkladGP
         public const string BD_SSCC     = "BD_SSCC";
         public const string BD_PICT     = "BD_PICT";
 
-        // таблицы для обмена
+        // С‚Р°Р±Р»РёС†С‹ РґР»СЏ РѕР±РјРµРЅР°
         public const string BD_ZDOC     = "BD_ZTTN";
         public const string BD_ZDET     = "BD_STTN";
 
         public const string BD_KMPL     = "BD_KMPL";
 
-        // связи между таблицами
+        // СЃРІСЏР·Рё РјРµР¶РґСѓ С‚Р°Р±Р»РёС†Р°РјРё
         public const string REL2TTN     = "DOC2TTN";
         public const string REL2ZVK     = "DOC2ZVK";
         public const string REL2PIC     = "DOC2PIC";
@@ -63,109 +63,109 @@ namespace SkladGP
         public const string REL2EMK     = "KMC2EMK";
         public const string REL2SSCC    = "DOC2SSCC";
 
-        // коды сортировки детальных строк
+        // РєРѕРґС‹ СЃРѕСЂС‚РёСЂРѕРІРєРё РґРµС‚Р°Р»СЊРЅС‹С… СЃС‚СЂРѕРє
         public new enum TABLESORT : int
         {
-            NO = 0,                            // без сортировки
-            KODMC = 1,                            // по краткому коду
-            NAMEMC = 2,                            // по наименованию
-            RECSTATE = 3,                            // по статусу записи
-            MAXDET = 4                             // максимальное значение
+            NO = 0,                            // Р±РµР· СЃРѕСЂС‚РёСЂРѕРІРєРё
+            KODMC = 1,                            // РїРѕ РєСЂР°С‚РєРѕРјСѓ РєРѕРґСѓ
+            NAMEMC = 2,                            // РїРѕ РЅР°РёРјРµРЅРѕРІР°РЅРёСЋ
+            RECSTATE = 3,                            // РїРѕ СЃС‚Р°С‚СѓСЃСѓ Р·Р°РїРёСЃРё
+            MAXDET = 4                             // РјР°РєСЃРёРјР°Р»СЊРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ
         }
 
 
-        // статус заявки
+        // СЃС‚Р°С‚СѓСЃ Р·Р°СЏРІРєРё
         public enum READINESS : int
         {
             NO          = 0,
-            PART_READY  = 20,                           // частично выполнена
-            FULL_READY = 100                            // полностью выполнена
+            PART_READY  = 20,                           // С‡Р°СЃС‚РёС‡РЅРѕ РІС‹РїРѕР»РЅРµРЅР°
+            FULL_READY = 100                            // РїРѕР»РЅРѕСЃС‚СЊСЋ РІС‹РїРѕР»РЅРµРЅР°
         }
 
-        //// дополнительные условия по объекту заявки
+        //// РґРѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Рµ СѓСЃР»РѕРІРёСЏ РїРѕ РѕР±СЉРµРєС‚Сѓ Р·Р°СЏРІРєРё
         //public enum SPECCOND : int
         //{
         //    NO              = 0,
-        //    DATE_SET        = 20,                           // не раньше указанной даты выработки
-        //    DATE_SET_EXT    = 50,                           // точное соответствие указанной дате выработки
-        //    PARTY_SET       = 100,                          // точная партия с датой выработки
+        //    DATE_SET        = 20,                           // РЅРµ СЂР°РЅСЊС€Рµ СѓРєР°Р·Р°РЅРЅРѕР№ РґР°С‚С‹ РІС‹СЂР°Р±РѕС‚РєРё
+        //    DATE_SET_EXT    = 50,                           // С‚РѕС‡РЅРѕРµ СЃРѕРѕС‚РІРµС‚СЃС‚РІРёРµ СѓРєР°Р·Р°РЅРЅРѕР№ РґР°С‚Рµ РІС‹СЂР°Р±РѕС‚РєРё
+        //    PARTY_SET       = 100,                          // С‚РѕС‡РЅР°СЏ РїР°СЂС‚РёСЏ СЃ РґР°С‚РѕР№ РІС‹СЂР°Р±РѕС‚РєРё
         //    SSCC_INT        = 200,
         //    SSCC            = 500
         //}
 
-        // дополнительные условия по объекту заявки
+        // РґРѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Рµ СѓСЃР»РѕРІРёСЏ РїРѕ РѕР±СЉРµРєС‚Сѓ Р·Р°СЏРІРєРё
         public enum SPECCOND : int
         {
             NO              = 0,
-            DATE_V_SET      = 4,                            // не раньше указанной даты выработки
-            DATE_G_SET      = 16,                           // не раньше указанной даты годности
-            DATE_SET        = 32,                           // что-то из двух дат задали
-            DATE_SET_EXACT  = 64,                           // точное совпадение даты
-            PARTY_SET       = 128,                          // точная партия с датой выработки
+            DATE_V_SET      = 4,                            // РЅРµ СЂР°РЅСЊС€Рµ СѓРєР°Р·Р°РЅРЅРѕР№ РґР°С‚С‹ РІС‹СЂР°Р±РѕС‚РєРё
+            DATE_G_SET      = 16,                           // РЅРµ СЂР°РЅСЊС€Рµ СѓРєР°Р·Р°РЅРЅРѕР№ РґР°С‚С‹ РіРѕРґРЅРѕСЃС‚Рё
+            DATE_SET        = 32,                           // С‡С‚Рѕ-С‚Рѕ РёР· РґРІСѓС… РґР°С‚ Р·Р°РґР°Р»Рё
+            DATE_SET_EXACT  = 64,                           // С‚РѕС‡РЅРѕРµ СЃРѕРІРїР°РґРµРЅРёРµ РґР°С‚С‹
+            PARTY_SET       = 128,                          // С‚РѕС‡РЅР°СЏ РїР°СЂС‚РёСЏ СЃ РґР°С‚РѕР№ РІС‹СЂР°Р±РѕС‚РєРё
             SSCC_INT        = 256,
             SSCC            = 512
         }
 
 
-        // разрешения ввода детальных строк
+        // СЂР°Р·СЂРµС€РµРЅРёСЏ РІРІРѕРґР° РґРµС‚Р°Р»СЊРЅС‹С… СЃС‚СЂРѕРє
         public enum DESTINPROD: int
         {
             UNKNOWN = 0,
-            GENCASE = 1,                                // общий случай
-            TOTALZ  = 2,                                // точное соответствие заявке (EAN-EMK-NP)
-            PARTZ   = 3,                                // частичное соответствие заявке
-            USER    = 10,                               // подтвердил User
+            GENCASE = 1,                                // РѕР±С‰РёР№ СЃР»СѓС‡Р°Р№
+            TOTALZ  = 2,                                // С‚РѕС‡РЅРѕРµ СЃРѕРѕС‚РІРµС‚СЃС‚РІРёРµ Р·Р°СЏРІРєРµ (EAN-EMK-NP)
+            PARTZ   = 3,                                // С‡Р°СЃС‚РёС‡РЅРѕРµ СЃРѕРѕС‚РІРµС‚СЃС‚РІРёРµ Р·Р°СЏРІРєРµ
+            USER    = 10,                               // РїРѕРґС‚РІРµСЂРґРёР» User
         }
 
-        // происхождение детальных строк
+        // РїСЂРѕРёСЃС…РѕР¶РґРµРЅРёРµ РґРµС‚Р°Р»СЊРЅС‹С… СЃС‚СЂРѕРє
         public enum SRCDET : int
         {
-            SCAN            = 1,                        // отсканировали
-            FROMZ           = 2,                        // скопировано из заявки
-            HANDS           = 3,                        // введено вручную
-            SSCCT           = 4,                        // загрузили через SSCC
-            FROMADR         = 5,                        // загрузили через адрес
-            FROMADR_BUTTON  = 6,                        // загрузили через адрес
-            CR4CTRL         = 7                         // созданог при контроле документа
+            SCAN            = 1,                        // РѕС‚СЃРєР°РЅРёСЂРѕРІР°Р»Рё
+            FROMZ           = 2,                        // СЃРєРѕРїРёСЂРѕРІР°РЅРѕ РёР· Р·Р°СЏРІРєРё
+            HANDS           = 3,                        // РІРІРµРґРµРЅРѕ РІСЂСѓС‡РЅСѓСЋ
+            SSCCT           = 4,                        // Р·Р°РіСЂСѓР·РёР»Рё С‡РµСЂРµР· SSCC
+            FROMADR         = 5,                        // Р·Р°РіСЂСѓР·РёР»Рё С‡РµСЂРµР· Р°РґСЂРµСЃ
+            FROMADR_BUTTON  = 6,                        // Р·Р°РіСЂСѓР·РёР»Рё С‡РµСЂРµР· Р°РґСЂРµСЃ
+            CR4CTRL         = 7                         // СЃРѕР·РґР°РЅРѕРі РїСЂРё РєРѕРЅС‚СЂРѕР»Рµ РґРѕРєСѓРјРµРЅС‚Р°
         }
 
-        // фильтрация детальных строк
+        // С„РёР»СЊС‚СЂР°С†РёСЏ РґРµС‚Р°Р»СЊРЅС‹С… СЃС‚СЂРѕРє
         [Flags]
         public enum FILTRDET
         {
-            UNFILTERED = 0,                             // без фильтра
-            READYZ,                                     // по готовности заявок
-            NPODD,                                      // по номерам поддонов
-            SSCC                                        // по SSCC поддонов
+            UNFILTERED = 0,                             // Р±РµР· С„РёР»СЊС‚СЂР°
+            READYZ,                                     // РїРѕ РіРѕС‚РѕРІРЅРѕСЃС‚Рё Р·Р°СЏРІРѕРє
+            NPODD,                                      // РїРѕ РЅРѕРјРµСЂР°Рј РїРѕРґРґРѕРЅРѕРІ
+            SSCC                                        // РїРѕ SSCC РїРѕРґРґРѕРЅРѕРІ
         }
 
-        // результат контроля документа
+        // СЂРµР·СѓР»СЊС‚Р°С‚ РєРѕРЅС‚СЂРѕР»СЏ РґРѕРєСѓРјРµРЅС‚Р°
         public enum DOCCTRL : int
         {
-            UNKNOWN = 0,                                // контроль не выполнялся
-            OK = 1,                                     // точное соответствие заявке
-            WARNS = 2,                                  // есть предупреждения
-            ERRS = 3                                    // есть ошибки
+            UNKNOWN = 0,                                // РєРѕРЅС‚СЂРѕР»СЊ РЅРµ РІС‹РїРѕР»РЅСЏР»СЃСЏ
+            OK = 1,                                     // С‚РѕС‡РЅРѕРµ СЃРѕРѕС‚РІРµС‚СЃС‚РІРёРµ Р·Р°СЏРІРєРµ
+            WARNS = 2,                                  // РµСЃС‚СЊ РїСЂРµРґСѓРїСЂРµР¶РґРµРЅРёСЏ
+            ERRS = 3                                    // РµСЃС‚СЊ РѕС€РёР±РєРё
         }
 
 
-        // индексы стилей для гридов
-        internal const int GDOC_VNT         = 0;        // для внутреннего
-        internal const int GDOC_INV         = 1;        // для инвентаризации
-        internal const int GDOC_CENTR       = 2;        // для центровывоза
+        // РёРЅРґРµРєСЃС‹ СЃС‚РёР»РµР№ РґР»СЏ РіСЂРёРґРѕРІ
+        internal const int GDOC_VNT         = 0;        // РґР»СЏ РІРЅСѓС‚СЂРµРЅРЅРµРіРѕ
+        internal const int GDOC_INV         = 1;        // РґР»СЏ РёРЅРІРµРЅС‚Р°СЂРёР·Р°С†РёРё
+        internal const int GDOC_CENTR       = 2;        // РґР»СЏ С†РµРЅС‚СЂРѕРІС‹РІРѕР·Р°
 
-        internal const int GDOC_NEXT        = 999;      // следующую по списку
+        internal const int GDOC_NEXT        = 999;      // СЃР»РµРґСѓСЋС‰СѓСЋ РїРѕ СЃРїРёСЃРєСѓ
 
-        // индексы стилей для детальных строк
-        internal const int GDET_SCAN        = 0;        // для сканированных
-        internal const int GDET_ZVK         = 1;        // для заявок
-        internal const int GDET_ZVK_KMPL    = 2;        // для инвентаризации
-        internal const int GDET_ZVK_KMPLV   = 3;        // для комплектации с весовым
+        // РёРЅРґРµРєСЃС‹ СЃС‚РёР»РµР№ РґР»СЏ РґРµС‚Р°Р»СЊРЅС‹С… СЃС‚СЂРѕРє
+        internal const int GDET_SCAN        = 0;        // РґР»СЏ СЃРєР°РЅРёСЂРѕРІР°РЅРЅС‹С…
+        internal const int GDET_ZVK         = 1;        // РґР»СЏ Р·Р°СЏРІРѕРє
+        internal const int GDET_ZVK_KMPL    = 2;        // РґР»СЏ РёРЅРІРµРЅС‚Р°СЂРёР·Р°С†РёРё
+        internal const int GDET_ZVK_KMPLV   = 3;        // РґР»СЏ РєРѕРјРїР»РµРєС‚Р°С†РёРё СЃ РІРµСЃРѕРІС‹Рј
 
-        // происхождение документа
-        internal const int DOCSRC_LOAD = 1;             // загружен
-        internal const int DOCSRC_CRTD = 2;             // создан вручную
-        internal const int DOCSRC_UPLD = 3;             // выгружен
+        // РїСЂРѕРёСЃС…РѕР¶РґРµРЅРёРµ РґРѕРєСѓРјРµРЅС‚Р°
+        internal const int DOCSRC_LOAD = 1;             // Р·Р°РіСЂСѓР¶РµРЅ
+        internal const int DOCSRC_CRTD = 2;             // СЃРѕР·РґР°РЅ РІСЂСѓС‡РЅСѓСЋ
+        internal const int DOCSRC_UPLD = 3;             // РІС‹РіСЂСѓР¶РµРЅ
        
 
         public DataSet dsM;
@@ -210,8 +210,8 @@ namespace SkladGP
                                        DT[BD_SPMC].dt.Columns["ID"]);
         }
 
-        // загрузка НСИ на терминале (локальных) NEW!!!
-        // nReg - LOAD_EMPTY или LOAD_ANY (грузить по-любому)
+        // Р·Р°РіСЂСѓР·РєР° РќРЎР РЅР° С‚РµСЂРјРёРЅР°Р»Рµ (Р»РѕРєР°Р»СЊРЅС‹С…) NEW!!!
+        // nReg - LOAD_EMPTY РёР»Рё LOAD_ANY (РіСЂСѓР·РёС‚СЊ РїРѕ-Р»СЋР±РѕРјСѓ)
         public void LoadLocNSI(string[] aI, int nR)
         {
             float fLoadAll = 0;
@@ -234,90 +234,90 @@ namespace SkladGP
 
 
 
-        // создание таблиц
+        // СЃРѕР·РґР°РЅРёРµ С‚Р°Р±Р»РёС†
         private void CreateTables()
         {
             DT = new Dictionary<string, TableDef>();
 
-            // информация о справочниках
+            // РёРЅС„РѕСЂРјР°С†РёСЏ Рѕ СЃРїСЂР°РІРѕС‡РЅРёРєР°С…
             DT.Add(BD_TINF, new TableDef(BD_TINF, new DataColumn[]{
-                new DataColumn("DT_NAME", typeof(string)),              // имя таблицы
-                new DataColumn("LASTLOAD", typeof(DateTime)),           // Дата последней удачной загрузки
-                new DataColumn("LOAD_HOST", typeof(string)),            // Host (IP) сервера загрузки
-                new DataColumn("LOAD_PORT", typeof(int)),               // Порт сервера загрузки
-                new DataColumn("FLAG_LOAD", typeof(string)),            // Режим загрузки с сервера
-                new DataColumn("MD5", typeof(string)) }));              // контрольная сумма MD5
+                new DataColumn("DT_NAME", typeof(string)),              // РёРјСЏ С‚Р°Р±Р»РёС†С‹
+                new DataColumn("LASTLOAD", typeof(DateTime)),           // Р”Р°С‚Р° РїРѕСЃР»РµРґРЅРµР№ СѓРґР°С‡РЅРѕР№ Р·Р°РіСЂСѓР·РєРё
+                new DataColumn("LOAD_HOST", typeof(string)),            // Host (IP) СЃРµСЂРІРµСЂР° Р·Р°РіСЂСѓР·РєРё
+                new DataColumn("LOAD_PORT", typeof(int)),               // РџРѕСЂС‚ СЃРµСЂРІРµСЂР° Р·Р°РіСЂСѓР·РєРё
+                new DataColumn("FLAG_LOAD", typeof(string)),            // Р РµР¶РёРј Р·Р°РіСЂСѓР·РєРё СЃ СЃРµСЂРІРµСЂР°
+                new DataColumn("MD5", typeof(string)) }));              // РєРѕРЅС‚СЂРѕР»СЊРЅР°СЏ СЃСѓРјРјР° MD5
             DT[BD_TINF].dt.PrimaryKey = new DataColumn[] { DT[BD_TINF].dt.Columns["DT_NAME"] };
-            DT[BD_TINF].nType = TBLTYPE.NSI | TBLTYPE.INTERN;           // создаю сам
+            DT[BD_TINF].nType = TBLTYPE.NSI | TBLTYPE.INTERN;           // СЃРѕР·РґР°СЋ СЃР°Рј
             DT[BD_TINF].dt.Columns["LOAD_HOST"].DefaultValue = "";
             DT[BD_TINF].dt.Columns["LOAD_PORT"].DefaultValue = 0;
             DT[BD_TINF].dt.Columns["FLAG_LOAD"].DefaultValue = "";
             DT[BD_TINF].dt.Columns["MD5"].DefaultValue = "";
 
-            // связь EAH-KMC
+            // СЃРІСЏР·СЊ EAH-KMC
             DT.Add(NS_KREAN, new TableDef(NS_KREAN, new DataColumn[]{
                 new DataColumn("EAN13", typeof(string)),                // EAN13 (C(13))
-                new DataColumn("KMC", typeof(string)),                  // Код (C(10))
-                new DataColumn("KRKMC", typeof(int)) }));               // краткий код (N(4))
+                new DataColumn("KMC", typeof(string)),                  // РљРѕРґ (C(10))
+                new DataColumn("KRKMC", typeof(int)) }));               // РєСЂР°С‚РєРёР№ РєРѕРґ (N(4))
             DT[NS_KREAN].dt.PrimaryKey = new DataColumn[] { DT[NS_KREAN].dt.Columns["KRKMC"] };
-            DT[NS_KREAN].nType = TBLTYPE.CREATE | TBLTYPE.NSI;          // создаю сам
+            DT[NS_KREAN].nType = TBLTYPE.CREATE | TBLTYPE.NSI;          // СЃРѕР·РґР°СЋ СЃР°Рј
 
-            // типы документов
+            // С‚РёРїС‹ РґРѕРєСѓРјРµРЅС‚РѕРІ
             DT.Add(NS_TYPD, new TableDef(NS_TYPD, new DataColumn[]{
-                new DataColumn("KOD", typeof(int)),                     // тип документаEAN13 (C(13))
-                new DataColumn("NAME", typeof(string)) }));             // наименование типа
+                new DataColumn("KOD", typeof(int)),                     // С‚РёРї РґРѕРєСѓРјРµРЅС‚Р°EAN13 (C(13))
+                new DataColumn("NAME", typeof(string)) }));             // РЅР°РёРјРµРЅРѕРІР°РЅРёРµ С‚РёРїР°
             DT[NS_TYPD].dt.PrimaryKey = new DataColumn[] { DT[NS_TYPD].dt.Columns["KOD"] };
             DT[NS_TYPD].nType = TBLTYPE.INTERN | TBLTYPE.NSI;
 
-            // паспорт задачи
+            // РїР°СЃРїРѕСЂС‚ Р·Р°РґР°С‡Рё
             DT.Add(BD_PASPORT, new TableDef(BD_PASPORT, new DataColumn[]{
-                new DataColumn("KD", typeof(string)),                   // Код данных
-                new DataColumn("TD", typeof(string)),                   // Тип данных
-                new DataColumn("NAME", typeof(string)),                 // Наименование
-                new DataColumn("SD", typeof(string)),                   // значение
-                new DataColumn("MD", typeof(string)) }));               // значение
+                new DataColumn("KD", typeof(string)),                   // РљРѕРґ РґР°РЅРЅС‹С…
+                new DataColumn("TD", typeof(string)),                   // РўРёРї РґР°РЅРЅС‹С…
+                new DataColumn("NAME", typeof(string)),                 // РќР°РёРјРµРЅРѕРІР°РЅРёРµ
+                new DataColumn("SD", typeof(string)),                   // Р·РЅР°С‡РµРЅРёРµ
+                new DataColumn("MD", typeof(string)) }));               // Р·РЅР°С‡РµРЅРёРµ
             DT[BD_PASPORT].dt.PrimaryKey = new DataColumn[] { DT[BD_PASPORT].dt.Columns["KD"] };
             //DT[BD_PASPORT].nType = TBLTYPE.BD | TBLTYPE.PASPORT | TBLTYPE.LOAD;
             DT[BD_PASPORT].nType = TBLTYPE.PASPORT | TBLTYPE.NSI | TBLTYPE.LOAD;
-            DT[BD_PASPORT].Text = "Паспорт";
+            DT[BD_PASPORT].Text = "РџР°СЃРїРѕСЂС‚";
 
-            // справочник пользователей
+            // СЃРїСЂР°РІРѕС‡РЅРёРє РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№
             DT.Add(NS_USER, new TableDef(NS_USER, new DataColumn[]{
-                new DataColumn("KP", typeof(string)),                   // код пользователя
-                new DataColumn("NMP", typeof(string)),                  // имя пользователя
-                new DataColumn("PP", typeof(string)),                   // пароль
-                new DataColumn("TABN", typeof(string)) }));             // табельный номер
+                new DataColumn("KP", typeof(string)),                   // РєРѕРґ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ
+                new DataColumn("NMP", typeof(string)),                  // РёРјСЏ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ
+                new DataColumn("PP", typeof(string)),                   // РїР°СЂРѕР»СЊ
+                new DataColumn("TABN", typeof(string)) }));             // С‚Р°Р±РµР»СЊРЅС‹Р№ РЅРѕРјРµСЂ
             DT[NS_USER].dt.PrimaryKey = new DataColumn[] { DT[NS_USER].dt.Columns["KP"] };
-            DT[NS_USER].Text = "Пользователи";
+            DT[NS_USER].Text = "РџРѕР»СЊР·РѕРІР°С‚РµР»Рё";
 
-            // матценности
+            // РјР°С‚С†РµРЅРЅРѕСЃС‚Рё
             DT.Add(NS_MC, new TableDef(NS_MC, new DataColumn[]{
-                new DataColumn("KMC", typeof(string)),                  // Код (C(10))
-                new DataColumn("SNM", typeof(string)),                  // Обозначение (C(30))
+                new DataColumn("KMC", typeof(string)),                  // РљРѕРґ (C(10))
+                new DataColumn("SNM", typeof(string)),                  // РћР±РѕР·РЅР°С‡РµРЅРёРµ (C(30))
                 new DataColumn("EAN13", typeof(string)),                // EAN13 (C(13))
-                new DataColumn("SRR", typeof(int)),                     // срок реализации (часы) (N(6))
-                new DataColumn("SRP", typeof(int)),                     // признак весового (1-весовой) (N(3))
-                new DataColumn("KRKMC", typeof(int)),                   // краткий код (N(4))
-                new DataColumn("WRAPP", typeof(string)),                // код программы стрейчевания
-                new DataColumn("GRADUS", typeof(string)),               // температурный режим для продукции
-                new DataColumn("GKMC", typeof(string))  }));            // групповой код (C(10))
+                new DataColumn("SRR", typeof(int)),                     // СЃСЂРѕРє СЂРµР°Р»РёР·Р°С†РёРё (С‡Р°СЃС‹) (N(6))
+                new DataColumn("SRP", typeof(int)),                     // РїСЂРёР·РЅР°Рє РІРµСЃРѕРІРѕРіРѕ (1-РІРµСЃРѕРІРѕР№) (N(3))
+                new DataColumn("KRKMC", typeof(int)),                   // РєСЂР°С‚РєРёР№ РєРѕРґ (N(4))
+                new DataColumn("WRAPP", typeof(string)),                // РєРѕРґ РїСЂРѕРіСЂР°РјРјС‹ СЃС‚СЂРµР№С‡РµРІР°РЅРёСЏ
+                new DataColumn("GRADUS", typeof(string)),               // С‚РµРјРїРµСЂР°С‚СѓСЂРЅС‹Р№ СЂРµР¶РёРј РґР»СЏ РїСЂРѕРґСѓРєС†РёРё
+                new DataColumn("GKMC", typeof(string))  }));            // РіСЂСѓРїРїРѕРІРѕР№ РєРѕРґ (C(10))
             //DT[NS_MC].dt.PrimaryKey = new DataColumn[] { DT[NS_MC].dt.Columns["EAN13"] };
             DT[NS_MC].dt.PrimaryKey = new DataColumn[] { DT[NS_MC].dt.Columns["KMC"] };
             DT[NS_MC].dt.Columns["SRP"].AllowDBNull = false;
-            DT[NS_MC].Text = "Мат. ценности";
+            DT[NS_MC].Text = "РњР°С‚. С†РµРЅРЅРѕСЃС‚Рё";
 
-            // справочник емкостей
+            // СЃРїСЂР°РІРѕС‡РЅРёРє РµРјРєРѕСЃС‚РµР№
             DT.Add(NS_SEMK, new TableDef(NS_SEMK, new DataColumn[]{
-                    new DataColumn("KMC", typeof(string)),              // Код продукта(C(10))
-                    new DataColumn("KT", typeof(string)),               // код тары(C(10))
-                    new DataColumn("KTARA", typeof(string)),            // код тары(C(10))
-                    new DataColumn("EMK", typeof(FRACT)),               // емкость/вес   (N(?))
-                    new DataColumn("EMKPOD", typeof(int)),              // емкость поддона в тарных местах
-                    new DataColumn("KRK", typeof(int)),                 // количество штук (N(5))
+                    new DataColumn("KMC", typeof(string)),              // РљРѕРґ РїСЂРѕРґСѓРєС‚Р°(C(10))
+                    new DataColumn("KT", typeof(string)),               // РєРѕРґ С‚Р°СЂС‹(C(10))
+                    new DataColumn("KTARA", typeof(string)),            // РєРѕРґ С‚Р°СЂС‹(C(10))
+                    new DataColumn("EMK", typeof(FRACT)),               // РµРјРєРѕСЃС‚СЊ/РІРµСЃ   (N(?))
+                    new DataColumn("EMKPOD", typeof(int)),              // РµРјРєРѕСЃС‚СЊ РїРѕРґРґРѕРЅР° РІ С‚Р°СЂРЅС‹С… РјРµСЃС‚Р°С…
+                    new DataColumn("KRK", typeof(int)),                 // РєРѕР»РёС‡РµСЃС‚РІРѕ С€С‚СѓРє (N(5))
                     new DataColumn("GTIN", typeof(string)),             // GTIN (C(14))
-                    new DataColumn("WRAPP", typeof(string)),            // код программы стрейчевания
-                    new DataColumn("PR", typeof(int)) }));              // приоритет (N(4))
-            DT[NS_SEMK].Text = "Емкости";
+                    new DataColumn("WRAPP", typeof(string)),            // РєРѕРґ РїСЂРѕРіСЂР°РјРјС‹ СЃС‚СЂРµР№С‡РµРІР°РЅРёСЏ
+                    new DataColumn("PR", typeof(int)) }));              // РїСЂРёРѕСЂРёС‚РµС‚ (N(4))
+            DT[NS_SEMK].Text = "Р•РјРєРѕСЃС‚Рё";
             DT[NS_SEMK].dt.Columns["EMK"].DefaultValue = 0;
             DT[NS_SEMK].dt.Columns["EMKPOD"].DefaultValue = 0;
             //DT[NS_SEMK].dt.PrimaryKey = new DataColumn[] { 
@@ -325,125 +325,126 @@ namespace SkladGP
                 //DT[NS_SEMK].dt.Columns["KMC"],
             //};
 
-            // плательщики / получатели
+            // РїР»Р°С‚РµР»СЊС‰РёРєРё / РїРѕР»СѓС‡Р°С‚РµР»Рё
             DT.Add(NS_PP, new TableDef(NS_PP, new DataColumn[]{
-                new DataColumn("KPL", typeof(string)),                  // код плательщика (C(8))
-                new DataColumn("KPP", typeof(string)),                  // полный код получателя
-                new DataColumn("KRKPP", typeof(int)),                   // Код (N(4))
-                new DataColumn("NAME", typeof(string)) }));             // Наименование (C(50))
+                new DataColumn("KPL", typeof(string)),                  // РєРѕРґ РїР»Р°С‚РµР»СЊС‰РёРєР° (C(8))
+                new DataColumn("KPP", typeof(string)),                  // РїРѕР»РЅС‹Р№ РєРѕРґ РїРѕР»СѓС‡Р°С‚РµР»СЏ
+                new DataColumn("KRKPP", typeof(int)),                   // РљРѕРґ (N(4))
+                new DataColumn("NAME", typeof(string)) }));             // РќР°РёРјРµРЅРѕРІР°РЅРёРµ (C(50))
             DT[NS_PP].dt.PrimaryKey = new DataColumn[] { DT[NS_PP].dt.Columns["KRKPP"] };
-            DT[NS_PP].Text = "Получатели-плательщики";
+            DT[NS_PP].Text = "РџРѕР»СѓС‡Р°С‚РµР»Рё-РїР»Р°С‚РµР»СЊС‰РёРєРё";
 
-            // экспедиторы
+            // СЌРєСЃРїРµРґРёС‚РѕСЂС‹
             DT.Add(NS_EKS, new TableDef(NS_EKS, new DataColumn[]{
-                new DataColumn("KEKS", typeof(int)),                    // код экспедитора (N(5))
-                new DataColumn("FIO", typeof(string)) }));              // ФИО экспедитора (C(50))
+                new DataColumn("KEKS", typeof(int)),                    // РєРѕРґ СЌРєСЃРїРµРґРёС‚РѕСЂР° (N(5))
+                new DataColumn("FIO", typeof(string)) }));              // Р¤РРћ СЌРєСЃРїРµРґРёС‚РѕСЂР° (C(50))
             DT[NS_EKS].dt.PrimaryKey = new DataColumn[] { DT[NS_EKS].dt.Columns["KEKS"] };
-            DT[NS_EKS].Text = "Экспедиторы";
+            DT[NS_EKS].Text = "Р­РєСЃРїРµРґРёС‚РѕСЂС‹";
 
-            // склады
+            // СЃРєР»Р°РґС‹
             DT.Add(NS_SKLAD, new TableDef(NS_SKLAD, new DataColumn[]{
-                new DataColumn("KSK", typeof(int)),                     // код склада
-                new DataColumn("NAME", typeof(string)) }));             // наименование склада
+                new DataColumn("KSK", typeof(int)),                     // РєРѕРґ СЃРєР»Р°РґР°
+                new DataColumn("NAME", typeof(string)) }));             // РЅР°РёРјРµРЅРѕРІР°РЅРёРµ СЃРєР»Р°РґР°
             DT[NS_SKLAD].dt.PrimaryKey = new DataColumn[] { DT[NS_SKLAD].dt.Columns["KSK"] };
-            DT[NS_SKLAD].Text = "Склады";
+            DT[NS_SKLAD].Text = "РЎРєР»Р°РґС‹";
 
-            // участки складов
+            // СѓС‡Р°СЃС‚РєРё СЃРєР»Р°РґРѕРІ
             DT.Add(NS_SUSK, new TableDef(NS_SUSK, new DataColumn[]{
-                new DataColumn("KSK", typeof(int)),                     // код склада
-                new DataColumn("NUCH", typeof(int)),                    // код участка
-                new DataColumn("NAME", typeof(string)) }));             // наименование участка
+                new DataColumn("KSK", typeof(int)),                     // РєРѕРґ СЃРєР»Р°РґР°
+                new DataColumn("NUCH", typeof(int)),                    // РєРѕРґ СѓС‡Р°СЃС‚РєР°
+                new DataColumn("NAME", typeof(string)) }));             // РЅР°РёРјРµРЅРѕРІР°РЅРёРµ СѓС‡Р°СЃС‚РєР°
             DT[NS_SUSK].dt.PrimaryKey = new DataColumn[] { DT[NS_SUSK].dt.Columns["KSK"], DT[NS_SUSK].dt.Columns["NUCH"] };
-            DT[NS_SUSK].Text = "Участки складов";
+            DT[NS_SUSK].Text = "РЈС‡Р°СЃС‚РєРё СЃРєР»Р°РґРѕРІ";
 
-            // справочник смен
+            // СЃРїСЂР°РІРѕС‡РЅРёРє СЃРјРµРЅ
             DT.Add(NS_SMEN, new TableDef(NS_SMEN, new DataColumn[]{
-                new DataColumn("KSMEN", typeof(string)),                // код смены
-                new DataColumn("NAME", typeof(string)) }));             // наименование смены
+                new DataColumn("KSMEN", typeof(string)),                // РєРѕРґ СЃРјРµРЅС‹
+                new DataColumn("NAME", typeof(string)) }));             // РЅР°РёРјРµРЅРѕРІР°РЅРёРµ СЃРјРµРЅС‹
             DT[NS_SMEN].dt.PrimaryKey = new DataColumn[] { DT[NS_SMEN].dt.Columns["KSMEN"] };
-            DT[NS_SMEN].Text = "Смены";
+            DT[NS_SMEN].Text = "РЎРјРµРЅС‹";
 
-            // справочник причин брака
+            // СЃРїСЂР°РІРѕС‡РЅРёРє РїСЂРёС‡РёРЅ Р±СЂР°РєР°
             DT.Add(NS_PRPR, new TableDef(NS_PRPR, new DataColumn[]{
-                new DataColumn("KPR", typeof(string)),                  // код причины полный
-                new DataColumn("KRK", typeof(int)),                     // код причины краткий
-                //new DataColumn("NAME", typeof(string)),                 // наименование причины
-                new DataColumn("SNM", typeof(string))}));               // краткое наименование причины
+                new DataColumn("KPR", typeof(string)),                  // РєРѕРґ РїСЂРёС‡РёРЅС‹ РїРѕР»РЅС‹Р№
+                new DataColumn("KRK", typeof(int)),                     // РєРѕРґ РїСЂРёС‡РёРЅС‹ РєСЂР°С‚РєРёР№
+                //new DataColumn("NAME", typeof(string)),                 // РЅР°РёРјРµРЅРѕРІР°РЅРёРµ РїСЂРёС‡РёРЅС‹
+                new DataColumn("SNM", typeof(string))}));               // РєСЂР°С‚РєРѕРµ РЅР°РёРјРµРЅРѕРІР°РЅРёРµ РїСЂРёС‡РёРЅС‹
             DT[NS_PRPR].dt.PrimaryKey = new DataColumn[] { DT[NS_PRPR].dt.Columns["KPR"] };
-            DT[NS_PRPR].Text = "Причины брака";
+            DT[NS_PRPR].Text = "РџСЂРёС‡РёРЅС‹ Р±СЂР°РєР°";
 
-            // внутренние коды получателей
+            // РІРЅСѓС‚СЂРµРЅРЅРёРµ РєРѕРґС‹ РїРѕР»СѓС‡Р°С‚РµР»РµР№
             DT.Add(NS_KRUS, new TableDef(NS_KRUS, new DataColumn[]{
-                new DataColumn("KMC", typeof(string)),                  // Код (C(10))
-                new DataColumn("EAN13", typeof(string)),                // Код (C(10))
-                new DataColumn("KINT", typeof(string))  }));            // внутренний код
+                new DataColumn("KMC", typeof(string)),                  // РљРѕРґ (C(10))
+                new DataColumn("EAN13", typeof(string)),                // РљРѕРґ (C(10))
+                new DataColumn("KINT", typeof(string))  }));            // РІРЅСѓС‚СЂРµРЅРЅРёР№ РєРѕРґ
             DT[NS_KRUS].dt.PrimaryKey = new DataColumn[] { DT[NS_KRUS].dt.Columns["KINT"] };
-            DT[NS_KRUS].Text = "Коды получателей";
+            DT[NS_KRUS].Text = "РљРѕРґС‹ РїРѕР»СѓС‡Р°С‚РµР»РµР№";
 
-            // идентификаторы применения
+            // РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂС‹ РїСЂРёРјРµРЅРµРЅРёСЏ
             DT.Add(NS_AI, new TableDef(NS_AI, new DataColumn[]{
-                new DataColumn("KAI", typeof(string)),              // Код идентификатора
-                new DataColumn("NAME", typeof(string)),             // Наименование
-                new DataColumn("TYPE", typeof(string)),             // Тип данных
-                new DataColumn("MAXL", typeof(int)),                // Длина данных
-                new DataColumn("VARLEN", typeof(int)),              // Признак переменной длины
-                new DataColumn("DECP", typeof(int)),                // Позиция десятичной точки
-                new DataColumn("PROP", typeof(string)),             // Поле
-                new DataColumn("KED", typeof(string)) }));          // Код единицы
+                new DataColumn("KAI", typeof(string)),              // РљРѕРґ РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂР°
+                new DataColumn("NAME", typeof(string)),             // РќР°РёРјРµРЅРѕРІР°РЅРёРµ
+                new DataColumn("TYPE", typeof(string)),             // РўРёРї РґР°РЅРЅС‹С…
+                new DataColumn("MAXL", typeof(int)),                // Р”Р»РёРЅР° РґР°РЅРЅС‹С…
+                new DataColumn("VARLEN", typeof(int)),              // РџСЂРёР·РЅР°Рє РїРµСЂРµРјРµРЅРЅРѕР№ РґР»РёРЅС‹
+                new DataColumn("DECP", typeof(int)),                // РџРѕР·РёС†РёСЏ РґРµСЃСЏС‚РёС‡РЅРѕР№ С‚РѕС‡РєРё
+                new DataColumn("PROP", typeof(string)),             // РџРѕР»Рµ
+                new DataColumn("KED", typeof(string)) }));          // РљРѕРґ РµРґРёРЅРёС†С‹
             DT[NS_AI].dt.PrimaryKey = new DataColumn[] { DT[NS_AI].dt.Columns["KAI"] };
             DT[NS_AI].nType = TBLTYPE.INTERN | TBLTYPE.NSI;
             DT[NS_AI].nState = DT_STATE_INIT;
-            DT[NS_AI].Text = "Идентификаторы применения";
+            DT[NS_AI].Text = "РРґРµРЅС‚РёС„РёРєР°С‚РѕСЂС‹ РїСЂРёРјРµРЅРµРЅРёСЏ";
 
-            // описание адресов зон и ячеек
+            // РѕРїРёСЃР°РЅРёРµ Р°РґСЂРµСЃРѕРІ Р·РѕРЅ Рё СЏС‡РµРµРє
             DT.Add(NS_ADR, new TableDef(NS_ADR, new DataColumn[]{
-                new DataColumn("KADR", typeof(string)),             // адрес ячейки-зоны
-                new DataColumn("NAME", typeof(string)),             // Наименование
-                new DataColumn("TYPE", typeof(int)) }));            // Тип
+                new DataColumn("KADR", typeof(string)),             // Р°РґСЂРµСЃ СЏС‡РµР№РєРё-Р·РѕРЅС‹
+                new DataColumn("NAME", typeof(string)),             // РќР°РёРјРµРЅРѕРІР°РЅРёРµ
+                new DataColumn("TYPE", typeof(int)) }));            // РўРёРї
             DT[NS_ADR].dt.PrimaryKey = new DataColumn[] { DT[NS_ADR].dt.Columns["KADR"] };
             //DT[NS_ADR].nType = TBLTYPE.INTERN | TBLTYPE.NSI;
             //DT[NS_ADR].nState = DT_STATE_INIT;
-            DT[NS_ADR].Text = "Адреса";
-            // Функция для отображения адреса NameAdr(nSklad, sAdr);
+            DT[NS_ADR].Text = "РђРґСЂРµСЃР°";
+            // Р¤СѓРЅРєС†РёСЏ РґР»СЏ РѕС‚РѕР±СЂР°Р¶РµРЅРёСЏ Р°РґСЂРµСЃР° NameAdr(nSklad, sAdr);
 
 
-            // заголовки документов
+            // Р·Р°РіРѕР»РѕРІРєРё РґРѕРєСѓРјРµРЅС‚РѕРІ
             DT.Add(BD_DOCOUT, new TableDef(BD_DOCOUT, new DataColumn[]{
-                new DataColumn("TD", typeof(int)),                      // Тип документа (N(2))
-                new DataColumn("KRKPP", typeof(int)),                   // Код получателя (N(4))
-                new DataColumn("KSMEN", typeof(string)),                // Код смены (C(3))
-                new DataColumn("DT", typeof(string)),                   // Дата (C(8))
-                new DataColumn("KSK", typeof(int)),                     // Код склада (N(3))
-                new DataColumn("NUCH", typeof(int)),                    // Номер участка (N(3))
-                new DataColumn("KEKS", typeof(int)),                    // Код экспедитора (N(5))
-                new DataColumn("NOMD", typeof(string)),                 // Номер документа (C(10))
-                new DataColumn("SYSN", typeof(int)),                    // ID Код (N(9))
-                new DataColumn("SOURCE", typeof(int)),                  // Происхождение N(2))
-                new DataColumn("DIFF", typeof(int)),                    // Отклонение от заявки
-                new DataColumn("EXPR_DT", typeof(string)),              // выражение для даты
-                new DataColumn("EXPR_SRC", typeof(string)),             // выражение для происхождения
+                new DataColumn("TD", typeof(int)),                      // РўРёРї РґРѕРєСѓРјРµРЅС‚Р° (N(2))
+                new DataColumn("KRKPP", typeof(int)),                   // РљРѕРґ РїРѕР»СѓС‡Р°С‚РµР»СЏ (N(4))
+                new DataColumn("KSMEN", typeof(string)),                // РљРѕРґ СЃРјРµРЅС‹ (C(3))
+                new DataColumn("DT", typeof(string)),                   // Р”Р°С‚Р° (C(8))
+                new DataColumn("KSK", typeof(int)),                     // РљРѕРґ СЃРєР»Р°РґР° (N(3))
+                new DataColumn("NUCH", typeof(int)),                    // РќРѕРјРµСЂ СѓС‡Р°СЃС‚РєР° (N(3))
+                new DataColumn("KEKS", typeof(int)),                    // РљРѕРґ СЌРєСЃРїРµРґРёС‚РѕСЂР° (N(5))
+                new DataColumn("NOMD", typeof(string)),                 // РќРѕРјРµСЂ РґРѕРєСѓРјРµРЅС‚Р° (C(10))
+                new DataColumn("SYSN", typeof(int)),                    // ID РљРѕРґ (N(9))
+                new DataColumn("SOURCE", typeof(int)),                  // РџСЂРѕРёСЃС…РѕР¶РґРµРЅРёРµ N(2))
+                new DataColumn("DIFF", typeof(int)),                    // РћС‚РєР»РѕРЅРµРЅРёРµ РѕС‚ Р·Р°СЏРІРєРё
+                new DataColumn("EXPR_DT", typeof(string)),              // РІС‹СЂР°Р¶РµРЅРёРµ РґР»СЏ РґР°С‚С‹
+                new DataColumn("EXPR_SRC", typeof(string)),             // РІС‹СЂР°Р¶РµРЅРёРµ РґР»СЏ РїСЂРѕРёСЃС…РѕР¶РґРµРЅРёСЏ
 
-                new DataColumn("CHKSSCC", typeof(int)),                 // Для контроля SSCC
+                new DataColumn("CHKSSCC", typeof(int)),                 // Р”Р»СЏ РєРѕРЅС‚СЂРѕР»СЏ SSCC
 
-                new DataColumn("PP_NAME", typeof(string)),              // Наименование получателя
-                new DataColumn("EKS_NAME", typeof(string)),             // Наименование экспедитора
-                new DataColumn("MEST", typeof(int)),                    // Количество мест(N(3))
-                new DataColumn("MESTZ", typeof(int)),                   // Количество мест по заявке(N(3))
-                new DataColumn("KOLE", typeof(FRACT)),                  // Количество единиц (N(10,3))
-                new DataColumn("TYPOP", typeof(int)),                   // Тип операции (приемка, отгрузка, ...)
+                new DataColumn("PP_NAME", typeof(string)),              // РќР°РёРјРµРЅРѕРІР°РЅРёРµ РїРѕР»СѓС‡Р°С‚РµР»СЏ
+                new DataColumn("EKS_NAME", typeof(string)),             // РќР°РёРјРµРЅРѕРІР°РЅРёРµ СЌРєСЃРїРµРґРёС‚РѕСЂР°
+                new DataColumn("MEST", typeof(int)),                    // РљРѕР»РёС‡РµСЃС‚РІРѕ РјРµСЃС‚(N(3))
+                new DataColumn("MESTZ", typeof(int)),                   // РљРѕР»РёС‡РµСЃС‚РІРѕ РјРµСЃС‚ РїРѕ Р·Р°СЏРІРєРµ(N(3))
+                new DataColumn("KOLE", typeof(FRACT)),                  // РљРѕР»РёС‡РµСЃС‚РІРѕ РµРґРёРЅРёС† (N(10,3))
+                new DataColumn("TYPOP", typeof(int)),                   // РўРёРї РѕРїРµСЂР°С†РёРё (РїСЂРёРµРјРєР°, РѕС‚РіСЂСѓР·РєР°, ...)
 
-                new DataColumn("LSTUCH", typeof(string)),               // Список участков
-                new DataColumn("LSTNPD", typeof(string)),               // Список номеров поддонов
-                new DataColumn("CONFSCAN", typeof(int)),                // Режим подтверждения сканирования(ввода)
+                new DataColumn("LSTUCH", typeof(string)),               // РЎРїРёСЃРѕРє СѓС‡Р°СЃС‚РєРѕРІ
+                new DataColumn("LSTNPD", typeof(string)),               // РЎРїРёСЃРѕРє РЅРѕРјРµСЂРѕРІ РїРѕРґРґРѕРЅРѕРІ
+                new DataColumn("CONFSCAN", typeof(int)),                // Р РµР¶РёРј РїРѕРґС‚РІРµСЂР¶РґРµРЅРёСЏ СЃРєР°РЅРёСЂРѕРІР°РЅРёСЏ(РІРІРѕРґР°)
 
-                new DataColumn("SSCCONLY", typeof(int)),                // 1 - Режим ввода - только SSCC
-                new DataColumn("PICTURE", typeof(string)),              // фото поддона
+                new DataColumn("SSCCONLY", typeof(int)),                // 1 - Р РµР¶РёРј РІРІРѕРґР° - С‚РѕР»СЊРєРѕ SSCC
+                new DataColumn("PICTURE", typeof(string)),              // С„РѕС‚Рѕ РїРѕРґРґРѕРЅР°
+                new DataColumn("DTPRIB", typeof(string)),               // РІСЂРµРјСЏ РїСЂРёР±С‹С‚РёСЏ РїРѕРґ Р·Р°РіСЂСѓР·РєСѓ РІ С„РѕСЂРјР°С‚Рµ dd.MM.yyyy HH:mm
                 
-                new DataColumn("TIMECR", typeof(DateTime)),             // дата-время создания
-                new DataColumn("ID_LOAD", typeof(string))  }));         // Код загруженного документа (C(10))
+                new DataColumn("TIMECR", typeof(DateTime)),             // РґР°С‚Р°-РІСЂРµРјСЏ СЃРѕР·РґР°РЅРёСЏ
+                new DataColumn("ID_LOAD", typeof(string))  }));         // РљРѕРґ Р·Р°РіСЂСѓР¶РµРЅРЅРѕРіРѕ РґРѕРєСѓРјРµРЅС‚Р° (C(10))
 
             DT[BD_DOCOUT].dt.Columns["EXPR_DT"].Expression = "substring(DT,7,2) + '.' + substring(DT,5,2)";
-            DT[BD_DOCOUT].dt.Columns["EXPR_SRC"].Expression = "iif(SOURCE=1,'Загр', iif(SOURCE=2,'Ввод','Выгр'))";
+            DT[BD_DOCOUT].dt.Columns["EXPR_SRC"].Expression = "iif(SOURCE=1,'Р—Р°РіСЂ', iif(SOURCE=2,'Р’РІРѕРґ','Р’С‹РіСЂ'))";
 
             DT[BD_DOCOUT].dt.Columns["DIFF"].DefaultValue = NSI.DOCCTRL.UNKNOWN;
             DT[BD_DOCOUT].dt.Columns["MEST"].DefaultValue = 0;
@@ -452,6 +453,8 @@ namespace SkladGP
             DT[BD_DOCOUT].dt.Columns["TYPOP"].DefaultValue = AppC.TYPOP_PRMK;
             DT[BD_DOCOUT].dt.Columns["CONFSCAN"].DefaultValue = 0;
             DT[BD_DOCOUT].dt.Columns["EKS_NAME"].DefaultValue = "";
+            DT[BD_DOCOUT].dt.Columns["DTPRIB"].DefaultValue = "";
+            DT[BD_DOCOUT].dt.Columns["DTPRIB"].AllowDBNull = false;
 
             DT[BD_DOCOUT].dt.PrimaryKey = new DataColumn[] { DT[BD_DOCOUT].dt.Columns["SYSN"] };
             DT[BD_DOCOUT].dt.Columns["SYSN"].AutoIncrement = true;
@@ -459,50 +462,50 @@ namespace SkladGP
             DT[BD_DOCOUT].dt.Columns["SYSN"].AutoIncrementStep = -1;
             DT[BD_DOCOUT].nType = TBLTYPE.BD;
 
-            // детальные строки (введенные)
+            // РґРµС‚Р°Р»СЊРЅС‹Рµ СЃС‚СЂРѕРєРё (РІРІРµРґРµРЅРЅС‹Рµ)
             DT.Add(BD_DOUTD, new TableDef(BD_DOUTD, new DataColumn[]{
-                new DataColumn("KRKMC", typeof(int)),                   // краткий код (N(4))
-                new DataColumn("SNM", typeof(string)),                  // Обозначение (C(30))
-                new DataColumn("KOLM", typeof(int)),                    // количество мест (N(4))
-                new DataColumn("KOLE", typeof(FRACT)),                  // всего (единиц или вес) (N(10,3))
-                new DataColumn("EMK", typeof(FRACT)),                   // емкость   (N(?))
+                new DataColumn("KRKMC", typeof(int)),                   // РєСЂР°С‚РєРёР№ РєРѕРґ (N(4))
+                new DataColumn("SNM", typeof(string)),                  // РћР±РѕР·РЅР°С‡РµРЅРёРµ (C(30))
+                new DataColumn("KOLM", typeof(int)),                    // РєРѕР»РёС‡РµСЃС‚РІРѕ РјРµСЃС‚ (N(4))
+                new DataColumn("KOLE", typeof(FRACT)),                  // РІСЃРµРіРѕ (РµРґРёРЅРёС† РёР»Рё РІРµСЃ) (N(10,3))
+                new DataColumn("EMK", typeof(FRACT)),                   // РµРјРєРѕСЃС‚СЊ   (N(?))
 
-                new DataColumn("NP", typeof(string)),                   // № партии (N(4))
+                new DataColumn("NP", typeof(string)),                   // в„– РїР°СЂС‚РёРё (N(4))
 
-                new DataColumn("DVR", typeof(string)),                  // дата выработки (D(8))
+                new DataColumn("DVR", typeof(string)),                  // РґР°С‚Р° РІС‹СЂР°Р±РѕС‚РєРё (D(8))
                 new DataColumn("EAN13", typeof(string)),                // EAN13 (C(13))
-                new DataColumn("SYSN", typeof(int)),                    // ключ документа (N(9))
-                new DataColumn("SRP", typeof(int)),                     // признак весового (1-весовой) (N(3))
-                new DataColumn("GKMC", typeof(string)),                 // групповой код (C(10))
-                new DataColumn("KRKT", typeof(string)),                 // код тары(C(10))
-                new DataColumn("KTARA", typeof(string)),                // код тары(C(10))
+                new DataColumn("SYSN", typeof(int)),                    // РєР»СЋС‡ РґРѕРєСѓРјРµРЅС‚Р° (N(9))
+                new DataColumn("SRP", typeof(int)),                     // РїСЂРёР·РЅР°Рє РІРµСЃРѕРІРѕРіРѕ (1-РІРµСЃРѕРІРѕР№) (N(3))
+                new DataColumn("GKMC", typeof(string)),                 // РіСЂСѓРїРїРѕРІРѕР№ РєРѕРґ (C(10))
+                new DataColumn("KRKT", typeof(string)),                 // РєРѕРґ С‚Р°СЂС‹(C(10))
+                new DataColumn("KTARA", typeof(string)),                // РєРѕРґ С‚Р°СЂС‹(C(10))
 
-                new DataColumn("VES", typeof(FRACT)),                   // всего (единиц или вес) (N(10,3))
-                new DataColumn("KOLG", typeof(int)),                    // всего единиц потребительской тары (N(10,3))
+                new DataColumn("VES", typeof(FRACT)),                   // РІСЃРµРіРѕ (РµРґРёРЅРёС† РёР»Рё РІРµСЃ) (N(10,3))
+                new DataColumn("KOLG", typeof(int)),                    // РІСЃРµРіРѕ РµРґРёРЅРёС† РїРѕС‚СЂРµР±РёС‚РµР»СЊСЃРєРѕР№ С‚Р°СЂС‹ (N(10,3))
                 
-                new DataColumn("KOLSH", typeof(int)),                   // из справочника емкостей-штук/упаковку (N(2))
-                new DataColumn("DEST", typeof(int)),                    // назначение строки
-                new DataColumn("ID", typeof(int)),                      // ID строки
+                new DataColumn("KOLSH", typeof(int)),                   // РёР· СЃРїСЂР°РІРѕС‡РЅРёРєР° РµРјРєРѕСЃС‚РµР№-С€С‚СѓРє/СѓРїР°РєРѕРІРєСѓ (N(2))
+                new DataColumn("DEST", typeof(int)),                    // РЅР°Р·РЅР°С‡РµРЅРёРµ СЃС‚СЂРѕРєРё
+                new DataColumn("ID", typeof(int)),                      // ID СЃС‚СЂРѕРєРё
 
-                new DataColumn("NPODDZ", typeof(int)),                  // № поддона из заявки
-                new DataColumn("ADRFROM", typeof(string)),              // адрес отправления
-                new DataColumn("ADRTO", typeof(string)),                // адрес получения
-                new DataColumn("NPODD", typeof(int)),                   // № поддона внутри партии
-                new DataColumn("NMESTA", typeof(int)),                  // № места
-                new DataColumn("SSCC", typeof(string)),                 // ID поддона
-                new DataColumn("SSCCINT", typeof(string)),              // внутренний SSCC поддона
+                new DataColumn("NPODDZ", typeof(int)),                  // в„– РїРѕРґРґРѕРЅР° РёР· Р·Р°СЏРІРєРё
+                new DataColumn("ADRFROM", typeof(string)),              // Р°РґСЂРµСЃ РѕС‚РїСЂР°РІР»РµРЅРёСЏ
+                new DataColumn("ADRTO", typeof(string)),                // Р°РґСЂРµСЃ РїРѕР»СѓС‡РµРЅРёСЏ
+                new DataColumn("NPODD", typeof(int)),                   // в„– РїРѕРґРґРѕРЅР° РІРЅСѓС‚СЂРё РїР°СЂС‚РёРё
+                new DataColumn("NMESTA", typeof(int)),                  // в„– РјРµСЃС‚Р°
+                new DataColumn("SSCC", typeof(string)),                 // ID РїРѕРґРґРѕРЅР°
+                new DataColumn("SSCCINT", typeof(string)),              // РІРЅСѓС‚СЂРµРЅРЅРёР№ SSCC РїРѕРґРґРѕРЅР°
 
-                new DataColumn("SYSPRD", typeof(int)),                  // SYSN предъявления
+                new DataColumn("SYSPRD", typeof(int)),                  // SYSN РїСЂРµРґСЉСЏРІР»РµРЅРёСЏ
 
-                new DataColumn("USER", typeof(string)),                 // код пользователя
+                new DataColumn("USER", typeof(string)),                 // РєРѕРґ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ
                 
-                new DataColumn("SRC", typeof(int)),                     // происхождение строки
-                new DataColumn("TIMECR", typeof(DateTime)),             // дата-время создания
-                new DataColumn("TIMEOV", typeof(DateTime)),             // дата-время создания
-                new DataColumn("STATE", typeof(int)),                   // состояние строки
+                new DataColumn("SRC", typeof(int)),                     // РїСЂРѕРёСЃС…РѕР¶РґРµРЅРёРµ СЃС‚СЂРѕРєРё
+                new DataColumn("TIMECR", typeof(DateTime)),             // РґР°С‚Р°-РІСЂРµРјСЏ СЃРѕР·РґР°РЅРёСЏ
+                new DataColumn("TIMEOV", typeof(DateTime)),             // РґР°С‚Р°-РІСЂРµРјСЏ СЃРѕР·РґР°РЅРёСЏ
+                new DataColumn("STATE", typeof(int)),                   // СЃРѕСЃС‚РѕСЏРЅРёРµ СЃС‚СЂРѕРєРё
                 
-                new DataColumn("NPP_ZVK", typeof(int)),                 // ID строки-заявки
-                new DataColumn("KMC", typeof(string)) }));              // Код (C(10))
+                new DataColumn("NPP_ZVK", typeof(int)),                 // ID СЃС‚СЂРѕРєРё-Р·Р°СЏРІРєРё
+                new DataColumn("KMC", typeof(string)) }));              // РљРѕРґ (C(10))
             DT[BD_DOUTD].dt.PrimaryKey = new DataColumn[] { DT[BD_DOUTD].dt.Columns["SYSN"], 
                 DT[BD_DOUTD].dt.Columns["KRKMC"], 
                 DT[BD_DOUTD].dt.Columns["EMK"], 
@@ -529,43 +532,43 @@ namespace SkladGP
             DT[BD_DOUTD].dt.Columns["STATE"].DefaultValue = AppC.OPR_STATE.OPR_EMPTY;
             DT[BD_DOUTD].nType = TBLTYPE.BD;
 
-            // детальные строки заявки
+            // РґРµС‚Р°Р»СЊРЅС‹Рµ СЃС‚СЂРѕРєРё Р·Р°СЏРІРєРё
             DT.Add(BD_DIND, new TableDef(BD_DIND, new DataColumn[]{
-                new DataColumn("KRKMC", typeof(int)),                   // краткий код (N(4))
-                new DataColumn("SNM", typeof(string)),                  // Обозначение (C(30))
-                new DataColumn("KOLM", typeof(int)),                    // количество мест (N(4))
-                new DataColumn("KOLE", typeof(FRACT)),                  // всего (единиц или вес) (N(10,3))
-                new DataColumn("EMK", typeof(FRACT)),                   // емкость   (N(?))
+                new DataColumn("KRKMC", typeof(int)),                   // РєСЂР°С‚РєРёР№ РєРѕРґ (N(4))
+                new DataColumn("SNM", typeof(string)),                  // РћР±РѕР·РЅР°С‡РµРЅРёРµ (C(30))
+                new DataColumn("KOLM", typeof(int)),                    // РєРѕР»РёС‡РµСЃС‚РІРѕ РјРµСЃС‚ (N(4))
+                new DataColumn("KOLE", typeof(FRACT)),                  // РІСЃРµРіРѕ (РµРґРёРЅРёС† РёР»Рё РІРµСЃ) (N(10,3))
+                new DataColumn("EMK", typeof(FRACT)),                   // РµРјРєРѕСЃС‚СЊ   (N(?))
 
-                //new DataColumn("NP", typeof(int)),                      // № партии (N(4))
-                new DataColumn("NP", typeof(string)),                   // № партии (N(4))
+                //new DataColumn("NP", typeof(int)),                      // в„– РїР°СЂС‚РёРё (N(4))
+                new DataColumn("NP", typeof(string)),                   // в„– РїР°СЂС‚РёРё (N(4))
 
-                new DataColumn("DVR", typeof(string)),                  // дата выработки (D(8))
-                new DataColumn("DTG", typeof(string)),                  // дата годности (D(8))
+                new DataColumn("DVR", typeof(string)),                  // РґР°С‚Р° РІС‹СЂР°Р±РѕС‚РєРё (D(8))
+                new DataColumn("DTG", typeof(string)),                  // РґР°С‚Р° РіРѕРґРЅРѕСЃС‚Рё (D(8))
 
                 new DataColumn("EAN13", typeof(string)),                // EAN13 (C(13))
-                new DataColumn("SYSN", typeof(int)),                    // ключ документа (N(9))
-                new DataColumn("SRP", typeof(int)),                     // признак весового (1-весовой) (N(3))
-                new DataColumn("GKMC", typeof(string)),                 // групповой код (C(10))
-                //new DataColumn("KRKT", typeof(string)),                 // код тары(C(10))
-                new DataColumn("KTARA", typeof(string)),                // код тары(C(10))
+                new DataColumn("SYSN", typeof(int)),                    // РєР»СЋС‡ РґРѕРєСѓРјРµРЅС‚Р° (N(9))
+                new DataColumn("SRP", typeof(int)),                     // РїСЂРёР·РЅР°Рє РІРµСЃРѕРІРѕРіРѕ (1-РІРµСЃРѕРІРѕР№) (N(3))
+                new DataColumn("GKMC", typeof(string)),                 // РіСЂСѓРїРїРѕРІРѕР№ РєРѕРґ (C(10))
+                //new DataColumn("KRKT", typeof(string)),                 // РєРѕРґ С‚Р°СЂС‹(C(10))
+                new DataColumn("KTARA", typeof(string)),                // РєРѕРґ С‚Р°СЂС‹(C(10))
 
-                new DataColumn("COND", typeof(int)),                    // условия по заявке
-                new DataColumn("READYZ", typeof(int)),                  // готовность заявки по продукции
+                new DataColumn("COND", typeof(int)),                    // СѓСЃР»РѕРІРёСЏ РїРѕ Р·Р°СЏРІРєРµ
+                new DataColumn("READYZ", typeof(int)),                  // РіРѕС‚РѕРІРЅРѕСЃС‚СЊ Р·Р°СЏРІРєРё РїРѕ РїСЂРѕРґСѓРєС†РёРё
 
-                new DataColumn("NPODDZ", typeof(int)),                  // № поддона
-                new DataColumn("NPP", typeof(int)),                     // № поддона п/п для укладки поддона
+                new DataColumn("NPODDZ", typeof(int)),                  // в„– РїРѕРґРґРѕРЅР°
+                new DataColumn("NPP", typeof(int)),                     // в„– РїРѕРґРґРѕРЅР° Рї/Рї РґР»СЏ СѓРєР»Р°РґРєРё РїРѕРґРґРѕРЅР°
 
-                new DataColumn("ADRFROM", typeof(string)),              // адрес отправления
-                new DataColumn("ADRTO", typeof(string)),                // адрес получения
+                new DataColumn("ADRFROM", typeof(string)),              // Р°РґСЂРµСЃ РѕС‚РїСЂР°РІР»РµРЅРёСЏ
+                new DataColumn("ADRTO", typeof(string)),                // Р°РґСЂРµСЃ РїРѕР»СѓС‡РµРЅРёСЏ
 
-                new DataColumn("SSCC", typeof(string)),                 // ID поддона
-                new DataColumn("SSCCINT", typeof(string)),              // внутренний SSCC поддона
+                new DataColumn("SSCC", typeof(string)),                 // ID РїРѕРґРґРѕРЅР°
+                new DataColumn("SSCCINT", typeof(string)),              // РІРЅСѓС‚СЂРµРЅРЅРёР№ SSCC РїРѕРґРґРѕРЅР°
 
-                new DataColumn("KRKPP", typeof(string)),                // Код получателя (N(5))
-                new DataColumn("ID", typeof(int)),                      // ID строки
+                new DataColumn("KRKPP", typeof(string)),                // РљРѕРґ РїРѕР»СѓС‡Р°С‚РµР»СЏ (N(5))
+                new DataColumn("ID", typeof(int)),                      // ID СЃС‚СЂРѕРєРё
 
-                new DataColumn("KMC", typeof(string)) }));              // Код (C(10))
+                new DataColumn("KMC", typeof(string)) }));              // РљРѕРґ (C(10))
 
             DT[BD_DIND].dt.Columns["NP"].DefaultValue = "";
             DT[BD_DIND].dt.Columns["NP"].AllowDBNull = false;
@@ -580,17 +583,17 @@ namespace SkladGP
 
             DT[BD_DIND].nType = TBLTYPE.BD | TBLTYPE.LOAD;
 
-            // список брака к документу
+            // СЃРїРёСЃРѕРє Р±СЂР°РєР° Рє РґРѕРєСѓРјРµРЅС‚Сѓ
             DT.Add(BD_SPMC, new TableDef(BD_SPMC, new DataColumn[]{
-                new DataColumn("SYSN", typeof(int)),                    // ключ документа (N(9))
-                new DataColumn("ID", typeof(int)),                      // ID строки продукции
-                new DataColumn("IDB", typeof(int)),                     // ID строки брака
-                new DataColumn("SNM", typeof(string)),                  // наименование причины
-                new DataColumn("KOLM", typeof(int)),                    // количество мест (N(4))
-                new DataColumn("KOLE", typeof(FRACT)),                  // всего (единиц или вес) (N(10,3))
-                new DataColumn("KRK", typeof(int)),                     // код причины краткий
-                new DataColumn("KPR", typeof(string)),                  // код причины полный
-                new DataColumn("TIMECR", typeof(DateTime))}));          // дата-время создания
+                new DataColumn("SYSN", typeof(int)),                    // РєР»СЋС‡ РґРѕРєСѓРјРµРЅС‚Р° (N(9))
+                new DataColumn("ID", typeof(int)),                      // ID СЃС‚СЂРѕРєРё РїСЂРѕРґСѓРєС†РёРё
+                new DataColumn("IDB", typeof(int)),                     // ID СЃС‚СЂРѕРєРё Р±СЂР°РєР°
+                new DataColumn("SNM", typeof(string)),                  // РЅР°РёРјРµРЅРѕРІР°РЅРёРµ РїСЂРёС‡РёРЅС‹
+                new DataColumn("KOLM", typeof(int)),                    // РєРѕР»РёС‡РµСЃС‚РІРѕ РјРµСЃС‚ (N(4))
+                new DataColumn("KOLE", typeof(FRACT)),                  // РІСЃРµРіРѕ (РµРґРёРЅРёС† РёР»Рё РІРµСЃ) (N(10,3))
+                new DataColumn("KRK", typeof(int)),                     // РєРѕРґ РїСЂРёС‡РёРЅС‹ РєСЂР°С‚РєРёР№
+                new DataColumn("KPR", typeof(string)),                  // РєРѕРґ РїСЂРёС‡РёРЅС‹ РїРѕР»РЅС‹Р№
+                new DataColumn("TIMECR", typeof(DateTime))}));          // РґР°С‚Р°-РІСЂРµРјСЏ СЃРѕР·РґР°РЅРёСЏ
             //DT[BD_SPMC].dt.PrimaryKey = new DataColumn[] { DT[BD_SPMC].dt.Columns["SYSN"], 
             //    DT[BD_SPMC].dt.Columns["ID"], 
             //    DT[BD_SPMC].dt.Columns["IDB"]};
@@ -606,22 +609,22 @@ namespace SkladGP
             DT[BD_SPMC].dt.Columns["SNM"].DefaultValue = "";
 
             DT[BD_SPMC].nType = TBLTYPE.BD;
-            DT[BD_SPMC].Text = "Список брака";
+            DT[BD_SPMC].Text = "РЎРїРёСЃРѕРє Р±СЂР°РєР°";
 
-            // список SSCC для документа
+            // СЃРїРёСЃРѕРє SSCC РґР»СЏ РґРѕРєСѓРјРµРЅС‚Р°
             DT.Add(BD_SSCC, new TableDef(BD_SSCC, new DataColumn[]{
-                new DataColumn("SYSN",      typeof(int)),               // ключ документа (N(9))
-                new DataColumn("NPODDZ",    typeof(int)),               // № поддона
-                new DataColumn("SSCC",      typeof(string)),            // SSCC поддона
-                new DataColumn("KOLM",      typeof(int)),               // мест
-                new DataColumn("KOLE",      typeof(FRACT)),             // единиц
+                new DataColumn("SYSN",      typeof(int)),               // РєР»СЋС‡ РґРѕРєСѓРјРµРЅС‚Р° (N(9))
+                new DataColumn("NPODDZ",    typeof(int)),               // в„– РїРѕРґРґРѕРЅР°
+                new DataColumn("SSCC",      typeof(string)),            // SSCC РїРѕРґРґРѕРЅР°
+                new DataColumn("KOLM",      typeof(int)),               // РјРµСЃС‚
+                new DataColumn("KOLE",      typeof(FRACT)),             // РµРґРёРЅРёС†
 
-                new DataColumn("MONO",      typeof(int)),               // флаг монопаллеты
+                new DataColumn("MONO",      typeof(int)),               // С„Р»Р°Рі РјРѕРЅРѕРїР°Р»Р»РµС‚С‹
 
-                new DataColumn("IN_ZVK",    typeof(int)),               // 1 - получено с сервера (как заявка)
-                new DataColumn("IN_TTN",    typeof(int)),               // 1 - отсканированотерминалом
-                new DataColumn("STATE",     typeof(int)),               // состояние
-                new DataColumn("ID",        typeof(int)) }));           // ID строки
+                new DataColumn("IN_ZVK",    typeof(int)),               // 1 - РїРѕР»СѓС‡РµРЅРѕ СЃ СЃРµСЂРІРµСЂР° (РєР°Рє Р·Р°СЏРІРєР°)
+                new DataColumn("IN_TTN",    typeof(int)),               // 1 - РѕС‚СЃРєР°РЅРёСЂРѕРІР°РЅРѕС‚РµСЂРјРёРЅР°Р»РѕРј
+                new DataColumn("STATE",     typeof(int)),               // СЃРѕСЃС‚РѕСЏРЅРёРµ
+                new DataColumn("ID",        typeof(int)) }));           // ID СЃС‚СЂРѕРєРё
             DT[BD_SSCC].nType = TBLTYPE.BD;
             DT[BD_SSCC].dt.Columns["ID"].AutoIncrement = true;
             DT[BD_SSCC].dt.Columns["ID"].AutoIncrementSeed = -1;
@@ -629,33 +632,33 @@ namespace SkladGP
             DT[BD_SSCC].dt.Columns["IN_ZVK"].DefaultValue = 0;
             DT[BD_SSCC].dt.Columns["IN_TTN"].DefaultValue = 0;
 
-            // список схем поддонов для документа
+            // СЃРїРёСЃРѕРє СЃС…РµРј РїРѕРґРґРѕРЅРѕРІ РґР»СЏ РґРѕРєСѓРјРµРЅС‚Р°
             DT.Add(BD_PICT, new TableDef(BD_PICT, new DataColumn[]{
-                new DataColumn("SYSN",      typeof(int)),               // ключ документа (N(9))
-                new DataColumn("NPODDZ",    typeof(int)),               // № поддона
-                new DataColumn("NPP",       typeof(int)),               // № фото
-                new DataColumn("PICTURE",   typeof(string)),            // фото поддона
-                new DataColumn("ID",        typeof(int)) }));           // ID строки
+                new DataColumn("SYSN",      typeof(int)),               // РєР»СЋС‡ РґРѕРєСѓРјРµРЅС‚Р° (N(9))
+                new DataColumn("NPODDZ",    typeof(int)),               // в„– РїРѕРґРґРѕРЅР°
+                new DataColumn("NPP",       typeof(int)),               // в„– С„РѕС‚Рѕ
+                new DataColumn("PICTURE",   typeof(string)),            // С„РѕС‚Рѕ РїРѕРґРґРѕРЅР°
+                new DataColumn("ID",        typeof(int)) }));           // ID СЃС‚СЂРѕРєРё
             DT[BD_PICT].nType = TBLTYPE.BD;
             DT[BD_PICT].dt.Columns["ID"].AutoIncrement = true;
             DT[BD_PICT].dt.Columns["ID"].AutoIncrementSeed = -1;
             DT[BD_PICT].dt.Columns["ID"].AutoIncrementStep = -1;
 
-            // список авто для выбора
+            // СЃРїРёСЃРѕРє Р°РІС‚Рѕ РґР»СЏ РІС‹Р±РѕСЂР°
             DT.Add(BD_SOTG, new TableDef(BD_SOTG, new DataColumn[]{
-                new DataColumn("SYSN", typeof(int)),                    // ключ документа (N(9))
-                new DataColumn("NPP", typeof(int)),                     // ключ документа (N(9))
-                new DataColumn("ID", typeof(int)),                      // ID строки
-                new DataColumn("KSMEN", typeof(string)),                // Код смены (C(3))
-                new DataColumn("DTP", typeof(string)),                // Дата/время прибытия
-                new DataColumn("DTU", typeof(string)),                // Дата/время убытия
-                new DataColumn("NSH", typeof(int)),                     // № шлюза
-                new DataColumn("KEKS", typeof(int)),                    // Код экспедитора (N(5))
-                new DataColumn("KAVT", typeof(string)),                 // № авто
-                new DataColumn("NPL", typeof(int)),                     // № путевого
-                new DataColumn("ND", typeof(int)),                      // № документа
-                new DataColumn("ROUTE", typeof(string)),                // описание маршрута
-                new DataColumn("STATE", typeof(int))}));                // состояние
+                new DataColumn("SYSN", typeof(int)),                    // РєР»СЋС‡ РґРѕРєСѓРјРµРЅС‚Р° (N(9))
+                new DataColumn("NPP", typeof(int)),                     // РєР»СЋС‡ РґРѕРєСѓРјРµРЅС‚Р° (N(9))
+                new DataColumn("ID", typeof(int)),                      // ID СЃС‚СЂРѕРєРё
+                new DataColumn("KSMEN", typeof(string)),                // РљРѕРґ СЃРјРµРЅС‹ (C(3))
+                new DataColumn("DTP", typeof(string)),                // Р”Р°С‚Р°/РІСЂРµРјСЏ РїСЂРёР±С‹С‚РёСЏ
+                new DataColumn("DTU", typeof(string)),                // Р”Р°С‚Р°/РІСЂРµРјСЏ СѓР±С‹С‚РёСЏ
+                new DataColumn("NSH", typeof(int)),                     // в„– С€Р»СЋР·Р°
+                new DataColumn("KEKS", typeof(int)),                    // РљРѕРґ СЌРєСЃРїРµРґРёС‚РѕСЂР° (N(5))
+                new DataColumn("KAVT", typeof(string)),                 // в„– Р°РІС‚Рѕ
+                new DataColumn("NPL", typeof(int)),                     // в„– РїСѓС‚РµРІРѕРіРѕ
+                new DataColumn("ND", typeof(int)),                      // в„– РґРѕРєСѓРјРµРЅС‚Р°
+                new DataColumn("ROUTE", typeof(string)),                // РѕРїРёСЃР°РЅРёРµ РјР°СЂС€СЂСѓС‚Р°
+                new DataColumn("STATE", typeof(int))}));                // СЃРѕСЃС‚РѕСЏРЅРёРµ
 
             DT[BD_SOTG].dt.PrimaryKey = new DataColumn[] { DT[BD_SOTG].dt.Columns["ID"] };
 
@@ -665,27 +668,27 @@ namespace SkladGP
 
             DT[BD_SOTG].dt.Columns["STATE"].DefaultValue = 0;
             DT[BD_SOTG].nType = TBLTYPE.BD;
-            DT[BD_SOTG].Text = "Список авто";
+            DT[BD_SOTG].Text = "РЎРїРёСЃРѕРє Р°РІС‚Рѕ";
 
-            // заголовки заказов на комплектацию
+            // Р·Р°РіРѕР»РѕРІРєРё Р·Р°РєР°Р·РѕРІ РЅР° РєРѕРјРїР»РµРєС‚Р°С†РёСЋ
             DT.Add(BD_KMPL, new TableDef(BD_KMPL, new DataColumn[]{
-                new DataColumn("TD", typeof(int)),                      // Тип документа (N(2))
-                new DataColumn("KRKPP", typeof(int)),                   // Код получателя (N(4))
-                new DataColumn("KSMEN", typeof(string)),                // Код смены (C(3))
-                new DataColumn("DT", typeof(string)),                   // Дата (C(8))
-                new DataColumn("KSK", typeof(int)),                     // Код склада (N(3))
-                new DataColumn("NUCH", typeof(string)),                 // Список участков
-                new DataColumn("KEKS", typeof(int)),                    // Код экспедитора (N(5))
-                new DataColumn("NOMD", typeof(string)),                 // Номер документа (C(10))
-                new DataColumn("SYSN", typeof(long)),                    // ID Код (N(9))
-                new DataColumn("KOLPODD", typeof(int)),                 // Поддонов для документа
+                new DataColumn("TD", typeof(int)),                      // РўРёРї РґРѕРєСѓРјРµРЅС‚Р° (N(2))
+                new DataColumn("KRKPP", typeof(int)),                   // РљРѕРґ РїРѕР»СѓС‡Р°С‚РµР»СЏ (N(4))
+                new DataColumn("KSMEN", typeof(string)),                // РљРѕРґ СЃРјРµРЅС‹ (C(3))
+                new DataColumn("DT", typeof(string)),                   // Р”Р°С‚Р° (C(8))
+                new DataColumn("KSK", typeof(int)),                     // РљРѕРґ СЃРєР»Р°РґР° (N(3))
+                new DataColumn("NUCH", typeof(string)),                 // РЎРїРёСЃРѕРє СѓС‡Р°СЃС‚РєРѕРІ
+                new DataColumn("KEKS", typeof(int)),                    // РљРѕРґ СЌРєСЃРїРµРґРёС‚РѕСЂР° (N(5))
+                new DataColumn("NOMD", typeof(string)),                 // РќРѕРјРµСЂ РґРѕРєСѓРјРµРЅС‚Р° (C(10))
+                new DataColumn("SYSN", typeof(long)),                    // ID РљРѕРґ (N(9))
+                new DataColumn("KOLPODD", typeof(int)),                 // РџРѕРґРґРѕРЅРѕРІ РґР»СЏ РґРѕРєСѓРјРµРЅС‚Р°
 
-                new DataColumn("EXPR_DT", typeof(string)),              // выражение для даты
+                new DataColumn("EXPR_DT", typeof(string)),              // РІС‹СЂР°Р¶РµРЅРёРµ РґР»СЏ РґР°С‚С‹
                 
-                new DataColumn("PP_NAME", typeof(string)),              // Наименование получателя
-                new DataColumn("TYPOP", typeof(int)),                   // Тип операции (приемка, отгрузка, ...)
+                new DataColumn("PP_NAME", typeof(string)),              // РќР°РёРјРµРЅРѕРІР°РЅРёРµ РїРѕР»СѓС‡Р°С‚РµР»СЏ
+                new DataColumn("TYPOP", typeof(int)),                   // РўРёРї РѕРїРµСЂР°С†РёРё (РїСЂРёРµРјРєР°, РѕС‚РіСЂСѓР·РєР°, ...)
                 
-                new DataColumn("KOBJ", typeof(string))  }));            // Код объекта (C(10))
+                new DataColumn("KOBJ", typeof(string))  }));            // РљРѕРґ РѕР±СЉРµРєС‚Р° (C(10))
 
             DT[BD_KMPL].dt.Columns["EXPR_DT"].Expression = "substring(DT,7,2) + '.' + substring(DT,5,2)";
 
@@ -697,39 +700,39 @@ namespace SkladGP
             DT[BD_KMPL].dt.Columns["SYSN"].AutoIncrementStep = -1;
             DT[BD_KMPL].nType = TBLTYPE.BD;
 
-            // бланки по типам документов
+            // Р±Р»Р°РЅРєРё РїРѕ С‚РёРїР°Рј РґРѕРєСѓРјРµРЅС‚РѕРІ
             DT.Add(NS_BLANK, new TableDef(NS_BLANK, new DataColumn[]{
-                new DataColumn("TD",        typeof(int)),               // тип доумента
-                new DataColumn("KBL",       typeof(string)),            // код бланка
-                new DataColumn("NAME",      typeof(string)),            // Наименование бланка
-                new DataColumn("PS",        typeof(int)),               // Выгрузка детальных строк
-                new DataColumn("BCT",       typeof(string)),            // Блок кода для бланка
-                new DataColumn("NPARS",     typeof(int)) }));           // Количество дополнительных параметров
+                new DataColumn("TD",        typeof(int)),               // С‚РёРї РґРѕСѓРјРµРЅС‚Р°
+                new DataColumn("KBL",       typeof(string)),            // РєРѕРґ Р±Р»Р°РЅРєР°
+                new DataColumn("NAME",      typeof(string)),            // РќР°РёРјРµРЅРѕРІР°РЅРёРµ Р±Р»Р°РЅРєР°
+                new DataColumn("PS",        typeof(int)),               // Р’С‹РіСЂСѓР·РєР° РґРµС‚Р°Р»СЊРЅС‹С… СЃС‚СЂРѕРє
+                new DataColumn("BCT",       typeof(string)),            // Р‘Р»РѕРє РєРѕРґР° РґР»СЏ Р±Р»Р°РЅРєР°
+                new DataColumn("NPARS",     typeof(int)) }));           // РљРѕР»РёС‡РµСЃС‚РІРѕ РґРѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹С… РїР°СЂР°РјРµС‚СЂРѕРІ
             DT[NS_BLANK].dt.PrimaryKey = new DataColumn[] { 
                 DT[NS_BLANK].dt.Columns["TD"],
                 DT[NS_BLANK].dt.Columns["KBL"]};
-            DT[NS_BLANK].Text = "Бланки документов";
+            DT[NS_BLANK].Text = "Р‘Р»Р°РЅРєРё РґРѕРєСѓРјРµРЅС‚РѕРІ";
 
-            // параметры бланков (поля ввода формы)
+            // РїР°СЂР°РјРµС‚СЂС‹ Р±Р»Р°РЅРєРѕРІ (РїРѕР»СЏ РІРІРѕРґР° С„РѕСЂРјС‹)
             DT.Add(NS_SBLK, new TableDef(NS_SBLK, new DataColumn[]{
-                new DataColumn("KBL",       typeof(string)),            // код бланка
-                new DataColumn("NPP",       typeof(int)),               // № п/п
-                new DataColumn("KPAR",      typeof(string)),            // Наименование параметра
-                new DataColumn("NAME",      typeof(string)),            // Назначение параметра
-                new DataColumn("TPAR",      typeof(string)),            // Тип параметра
-                new DataColumn("VALUE",     typeof(string)),            // значение параметра
-                new DataColumn("PRFX",      typeof(string)),            // префикс штрихкода
-                new DataColumn("PARS",      typeof(string)),            // код поля штрихкода
-                new DataColumn("BEGS",      typeof(int)),               // смещение в строке ШК (1,...
-                new DataColumn("LENS",      typeof(int)),               // смещение в строке ШК (1,...
-                new DataColumn("FUNC",      typeof(string)),            // функция после Validate
+                new DataColumn("KBL",       typeof(string)),            // РєРѕРґ Р±Р»Р°РЅРєР°
+                new DataColumn("NPP",       typeof(int)),               // в„– Рї/Рї
+                new DataColumn("KPAR",      typeof(string)),            // РќР°РёРјРµРЅРѕРІР°РЅРёРµ РїР°СЂР°РјРµС‚СЂР°
+                new DataColumn("NAME",      typeof(string)),            // РќР°Р·РЅР°С‡РµРЅРёРµ РїР°СЂР°РјРµС‚СЂР°
+                new DataColumn("TPAR",      typeof(string)),            // РўРёРї РїР°СЂР°РјРµС‚СЂР°
+                new DataColumn("VALUE",     typeof(string)),            // Р·РЅР°С‡РµРЅРёРµ РїР°СЂР°РјРµС‚СЂР°
+                new DataColumn("PRFX",      typeof(string)),            // РїСЂРµС„РёРєСЃ С€С‚СЂРёС…РєРѕРґР°
+                new DataColumn("PARS",      typeof(string)),            // РєРѕРґ РїРѕР»СЏ С€С‚СЂРёС…РєРѕРґР°
+                new DataColumn("BEGS",      typeof(int)),               // СЃРјРµС‰РµРЅРёРµ РІ СЃС‚СЂРѕРєРµ РЁРљ (1,...
+                new DataColumn("LENS",      typeof(int)),               // СЃРјРµС‰РµРЅРёРµ РІ СЃС‚СЂРѕРєРµ РЁРљ (1,...
+                new DataColumn("FUNC",      typeof(string)),            // С„СѓРЅРєС†РёСЏ РїРѕСЃР»Рµ Validate
                 new DataColumn("DSOURCE",   typeof(string)),            // DataSource
                 new DataColumn("DISPLAY",   typeof(string)),            // DisplayMember
                 new DataColumn("RESULT",    typeof(string)),            // ValueMember
-                new DataColumn("TBCODE",    typeof(string)),            // тип штрихкода
-                new DataColumn("PERCAPT",   typeof(int)),               // смещение в строке ШК (1,...
-                new DataColumn("BCT",       typeof(string)),            // Блок кода для EXPR
-                new DataColumn("FORMAT",    typeof(string)) }));        // формат текстовых полей
+                new DataColumn("TBCODE",    typeof(string)),            // С‚РёРї С€С‚СЂРёС…РєРѕРґР°
+                new DataColumn("PERCAPT",   typeof(int)),               // СЃРјРµС‰РµРЅРёРµ РІ СЃС‚СЂРѕРєРµ РЁРљ (1,...
+                new DataColumn("BCT",       typeof(string)),            // Р‘Р»РѕРє РєРѕРґР° РґР»СЏ EXPR
+                new DataColumn("FORMAT",    typeof(string)) }));        // С„РѕСЂРјР°С‚ С‚РµРєСЃС‚РѕРІС‹С… РїРѕР»РµР№
             DT[NS_SBLK].dt.PrimaryKey = new DataColumn[] { 
                 DT[NS_SBLK].dt.Columns["KBL"], DT[NS_SBLK].dt.Columns["KPAR"]};
             //DT[NS_SBLK].nType = TBLTYPE.INTERN | TBLTYPE.NSI;
@@ -738,10 +741,10 @@ namespace SkladGP
             DT[NS_SBLK].dt.Columns["DISPLAY"].DefaultValue = "";
             DT[NS_SBLK].dt.Columns["RESULT"].DefaultValue = "";
 
-            DT[NS_SBLK].Text = "Список параметров бланка";
+            DT[NS_SBLK].Text = "РЎРїРёСЃРѕРє РїР°СЂР°РјРµС‚СЂРѕРІ Р±Р»Р°РЅРєР°";
         }
 
-        // создание стилей просмотра таблиц
+        // СЃРѕР·РґР°РЅРёРµ СЃС‚РёР»РµР№ РїСЂРѕСЃРјРѕС‚СЂР° С‚Р°Р±Р»РёС†
         public void ConnDTGrid(DataGrid dgDoc, DataGrid dgDet)
         {
             dgDoc.SuspendLayout();
@@ -751,27 +754,27 @@ namespace SkladGP
             ChgGridStyle(BD_DOCOUT, GDOC_VNT);
             dgDoc.ResumeLayout();
 
-            // Просмотр детальных строк
+            // РџСЂРѕСЃРјРѕС‚СЂ РґРµС‚Р°Р»СЊРЅС‹С… СЃС‚СЂРѕРє
             dgDet.SuspendLayout();
             DT[BD_DOUTD].dg = dgDet;
-            // у заявок - тот же Grid
+            // Сѓ Р·Р°СЏРІРѕРє - С‚РѕС‚ Р¶Рµ Grid
             DT[BD_DIND].dg = dgDet;
             CreateTableStylesDet(dgDet);
             ChgGridStyle(BD_DIND, GDET_ZVK);
             //ChgGridStyle(BD_DIND, GDET_ZVK_KMPL);
-            // по умолчанию - просмотр ТТН
+            // РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ - РїСЂРѕСЃРјРѕС‚СЂ РўРўРќ
             dgDet.DataSource = dsM.Relations[0].ChildTable;
             ChgGridStyle(BD_DOUTD, GDET_SCAN);
             dgDet.ResumeLayout();
         }
 
-        // стили просмотра таблицы документов в гриде
+        // СЃС‚РёР»Рё РїСЂРѕСЃРјРѕС‚СЂР° С‚Р°Р±Р»РёС†С‹ РґРѕРєСѓРјРµРЅС‚РѕРІ РІ РіСЂРёРґРµ
         private void CreateTableStyles(DataGrid dg)
         {
             DataGridTableStyle 
                 ts,
                 tss;
-            // специальные цвета для результатов контроля
+            // СЃРїРµС†РёР°Р»СЊРЅС‹Рµ С†РІРµС‚Р° РґР»СЏ СЂРµР·СѓР»СЊС‚Р°С‚РѕРІ РєРѕРЅС‚СЂРѕР»СЏ
             System.Drawing.Color 
                 colForFullAuto = System.Drawing.Color.LightGreen,
                 colSpec = System.Drawing.Color.PaleGoldenrod;
@@ -781,13 +784,13 @@ namespace SkladGP
 
             dg.TableStyles.Clear();
 
-            // для внутреннего
+            // РґР»СЏ РІРЅСѓС‚СЂРµРЅРЅРµРіРѕ
             ts = new DataGridTableStyle();
             ts.MappingName = GDOC_VNT.ToString();
 
             sC = new ServClass.DGTBoxColorColumnDoc(dg, BD_DOCOUT);
             sC.MappingName = "EXPR_DT";
-            sC.HeaderText = "Дата";
+            sC.HeaderText = "Р”Р°С‚Р°";
             sC.Width = 31;
             sC.NullText = "";
             sC.AlternatingBackColorSpec = colSpec;
@@ -803,7 +806,7 @@ namespace SkladGP
 
             sC = new ServClass.DGTBoxColorColumnDoc(dg, BD_DOCOUT);
             sC.MappingName = "KSK";
-            sC.HeaderText = "Склад";
+            sC.HeaderText = "РЎРєР»Р°Рґ";
             sC.Width = 35;
             sC.NullText = "";
             sC.AlternatingBackColorSpec = colSpec;
@@ -811,7 +814,7 @@ namespace SkladGP
 
             sC = new ServClass.DGTBoxColorColumnDoc(dg, BD_DOCOUT);
             sC.MappingName = "EXPR_SRC";
-            sC.HeaderText = "Загр";
+            sC.HeaderText = "Р—Р°РіСЂ";
             sC.Width = 32;
             sC.NullText = "";
             sC.AlternatingBackColorSpec = colSpec;
@@ -819,7 +822,7 @@ namespace SkladGP
 
             sC = new ServClass.DGTBoxColorColumnDoc(dg, BD_DOCOUT);
             sC.MappingName = "KRKPP";
-            sC.HeaderText = "П-ль";
+            sC.HeaderText = "Рџ-Р»СЊ";
             sC.Width = 33;
             sC.NullText = "";
             sC.AlternatingBackColorSpec = colSpec;
@@ -830,7 +833,7 @@ namespace SkladGP
             sC.AlternatingBackColor = colForFullAuto;
             sC.AlternatingBackColorSpec = colSpec;
             sC.MappingName = "MEST";
-            sC.HeaderText = "Мест";
+            sC.HeaderText = "РњРµСЃС‚";
             sC.NullText = "";
             sC.Width = 36;
             sC.AlternatingBackColorSpec = colSpec;
@@ -838,7 +841,7 @@ namespace SkladGP
 
             sC = new ServClass.DGTBoxColorColumnDoc(dg, BD_DOCOUT);
             sC.MappingName = "NOMD";
-            sC.HeaderText = "№ док";
+            sC.HeaderText = "в„– РґРѕРє";
             sC.Width = 55;
             sC.NullText = "";
             sC.AlternatingBackColorSpec = colSpec;
@@ -846,13 +849,13 @@ namespace SkladGP
 
             dg.TableStyles.Add(ts);
 
-            // Для инвентаризации
+            // Р”Р»СЏ РёРЅРІРµРЅС‚Р°СЂРёР·Р°С†РёРё
             DataGridTableStyle tsi = new DataGridTableStyle();
             tsi.MappingName = GDOC_INV.ToString();
 
             sC = new ServClass.DGTBoxColorColumnDoc(dg, BD_DOCOUT);
             sC.MappingName = "EXPR_DT";
-            sC.HeaderText = "Дата";
+            sC.HeaderText = "Р”Р°С‚Р°";
             sC.Width = 31;
             sC.NullText = "";
             sC.AlternatingBackColorSpec = colSpec;
@@ -868,7 +871,7 @@ namespace SkladGP
 
             sC = new ServClass.DGTBoxColorColumnDoc(dg, BD_DOCOUT);
             sC.MappingName = "KSMEN";
-            sC.HeaderText = "Смена";
+            sC.HeaderText = "РЎРјРµРЅР°";
             sC.Width = 35;
             sC.NullText = "";
             sC.AlternatingBackColorSpec = colSpec;
@@ -876,7 +879,7 @@ namespace SkladGP
 
             sC = new ServClass.DGTBoxColorColumnDoc(dg, BD_DOCOUT);
             sC.MappingName = "NUCH";
-            sC.HeaderText = "Уч";
+            sC.HeaderText = "РЈС‡";
             sC.Width = 20;
             sC.NullText = "";
             sC.AlternatingBackColorSpec = colSpec;
@@ -884,7 +887,7 @@ namespace SkladGP
 
             sC = new ServClass.DGTBoxColorColumnDoc(dg, BD_DOCOUT);
             sC.MappingName = "KEKS";
-            sC.HeaderText = "Эксп";
+            sC.HeaderText = "Р­РєСЃРї";
             sC.Width = 33;
             sC.NullText = "";
             sC.AlternatingBackColorSpec = colSpec;
@@ -892,7 +895,7 @@ namespace SkladGP
 
             sC = new ServClass.DGTBoxColorColumnDoc(dg, BD_DOCOUT);
             sC.MappingName = "EXPR_SRC";
-            sC.HeaderText = "Загр";
+            sC.HeaderText = "Р—Р°РіСЂ";
             sC.Width = 32;
             sC.NullText = "";
             sC.AlternatingBackColorSpec = colSpec;
@@ -902,7 +905,7 @@ namespace SkladGP
             sC.AlternatingBackColor = colForFullAuto;
             sC.AlternatingBackColorSpec = colSpec;
             sC.MappingName = "MEST";
-            sC.HeaderText = "Мест";
+            sC.HeaderText = "РњРµСЃС‚";
             sC.NullText = "";
             sC.Width = 36;
             sC.AlternatingBackColorSpec = colSpec;
@@ -910,7 +913,7 @@ namespace SkladGP
 
             sC = new ServClass.DGTBoxColorColumnDoc(dg, BD_DOCOUT);
             sC.MappingName = "MESTZ";
-            sC.HeaderText = "МестЗ";
+            sC.HeaderText = "РњРµСЃС‚Р—";
             sC.Width = 40;
             sC.NullText = "";
             sC.AlternatingBackColorSpec = colSpec;
@@ -918,7 +921,7 @@ namespace SkladGP
 
             sC = new ServClass.DGTBoxColorColumnDoc(dg, BD_DOCOUT);
             sC.MappingName = "DIFF";
-            sC.HeaderText = "Ст";
+            sC.HeaderText = "РЎС‚";
             sC.Width = 18;
             sC.NullText = "";
             sC.AlternatingBackColorSpec = colSpec;
@@ -926,7 +929,7 @@ namespace SkladGP
 
             sC = new ServClass.DGTBoxColorColumnDoc(dg, BD_DOCOUT);
             sC.MappingName = "KOLE";
-            sC.HeaderText = "Всего";
+            sC.HeaderText = "Р’СЃРµРіРѕ";
             sC.Width = 36;
             sC.NullText = "";
             sC.AlternatingBackColorSpec = colSpec;
@@ -934,27 +937,27 @@ namespace SkladGP
 
             dg.TableStyles.Add(tsi);
 
-            // для центровывоза
+            // РґР»СЏ С†РµРЅС‚СЂРѕРІС‹РІРѕР·Р°
             tss = new DataGridTableStyle();
             tss.MappingName = GDOC_CENTR.ToString();
 
             sC = new ServClass.DGTBoxColorColumnDoc(dg, BD_DOCOUT);
             sC.MappingName = "PP_NAME";
-            sC.HeaderText = "Плательщик";
+            sC.HeaderText = "РџР»Р°С‚РµР»СЊС‰РёРє";
             sC.Width = 130;
             sC.NullText = "";
             tss.GridColumnStyles.Add(sC);
 
             sC = new ServClass.DGTBoxColorColumnDoc(dg, BD_DOCOUT);
             sC.MappingName = "MEST";
-            sC.HeaderText = "Мест";
+            sC.HeaderText = "РњРµСЃС‚";
             sC.Width = 40;
             sC.NullText = "";
             tss.GridColumnStyles.Add(sC);
 
             sC = new ServClass.DGTBoxColorColumnDoc(dg, BD_DOCOUT);
             sC.MappingName = "DIFF";
-            sC.HeaderText = "Гот";
+            sC.HeaderText = "Р“РѕС‚";
             sC.Width = 35;
             sC.NullText = "";
             tss.GridColumnStyles.Add(sC);
@@ -964,11 +967,11 @@ namespace SkladGP
 
 
         private Color
-            C_READY_ZVK = Color.LightGreen,                 // детальная Заявка выполнена
-            C_READY_TTN = Color.Lavender,                   // детальная ТТН готова к передаче
-            C_TNSFD_TTN = Color.LightGreen;                 // детальная ТТН передана на сервер
+            C_READY_ZVK = Color.LightGreen,                 // РґРµС‚Р°Р»СЊРЅР°СЏ Р—Р°СЏРІРєР° РІС‹РїРѕР»РЅРµРЅР°
+            C_READY_TTN = Color.Lavender,                   // РґРµС‚Р°Р»СЊРЅР°СЏ РўРўРќ РіРѕС‚РѕРІР° Рє РїРµСЂРµРґР°С‡Рµ
+            C_TNSFD_TTN = Color.LightGreen;                 // РґРµС‚Р°Р»СЊРЅР°СЏ РўРўРќ РїРµСЂРµРґР°РЅР° РЅР° СЃРµСЂРІРµСЂ
 
-        // стили таблицы детальных строк (ТТН и Заявки)
+        // СЃС‚РёР»Рё С‚Р°Р±Р»РёС†С‹ РґРµС‚Р°Р»СЊРЅС‹С… СЃС‚СЂРѕРє (РўРўРќ Рё Р—Р°СЏРІРєРё)
         private void CreateTableStylesDet(DataGrid dg)
         {
             DataGridTableStyle
@@ -985,12 +988,12 @@ namespace SkladGP
 
             dg.TableStyles.Clear();
 
-            ts = new DataGridTableStyle();                                  // Для результатов сканирования (ТТН)
+            ts = new DataGridTableStyle();                                  // Р”Р»СЏ СЂРµР·СѓР»СЊС‚Р°С‚РѕРІ СЃРєР°РЅРёСЂРѕРІР°РЅРёСЏ (РўРўРќ)
             ts.MappingName = GDET_SCAN.ToString();
 
             sC = new ServClass.DGTBoxColorColumn(dg, NSI.BD_DOUTD);
             sC.MappingName = "KRKMC";
-            sC.HeaderText = "Код";
+            sC.HeaderText = "РљРѕРґ";
             sC.Width = 27;
             sC.AlternatingBackColor = colGreen;
             sC.AlternatingBackColorSpec = colSpec;
@@ -998,27 +1001,27 @@ namespace SkladGP
 
             sC = new ServClass.DGTBoxColorColumn(dg, NSI.BD_DOUTD);
             sC.MappingName = "SNM";
-            sC.HeaderText = "Наименование";
+            sC.HeaderText = "РќР°РёРјРµРЅРѕРІР°РЅРёРµ";
             sC.Width = 136;
             sC.AlternatingBackColor = colGreen;
             ts.GridColumnStyles.Add(sC);
 
             sC = new ServClass.DGTBoxColorColumn(dg, NSI.BD_DOUTD);
             sC.MappingName = "KOLM";
-            sC.HeaderText = "М-т";
+            sC.HeaderText = "Рњ-С‚";
             sC.AlternatingBackColor = colSpec;
             sC.Width = 26;
             ts.GridColumnStyles.Add(sC);
 
             colTB = new DataGridTextBoxColumn();
             colTB.MappingName = "EMK";
-            colTB.HeaderText = "Емк";
+            colTB.HeaderText = "Р•РјРє";
             colTB.Width = 35;
             ts.GridColumnStyles.Add(colTB);
 
             colTB = new DataGridTextBoxColumn();
             colTB.MappingName = "NP";
-            colTB.HeaderText = "Прт";
+            colTB.HeaderText = "РџСЂС‚";
             colTB.Width = 35;
             colTB.NullText = "";
             ts.GridColumnStyles.Add(colTB);
@@ -1027,14 +1030,14 @@ namespace SkladGP
             sC.AlternatingBackColor = colGreen;
             sC.AlternatingBackColorSpec = colSpec;
             sC.MappingName = "DVR";
-            sC.HeaderText = "Двыр";
+            sC.HeaderText = "Р”РІС‹СЂ";
             sC.Width = 36;
             sC.Alignment = HorizontalAlignment.Right;
             ts.GridColumnStyles.Add(sC);
 
             sC = new ServClass.DGTBoxColorColumn(dg, NSI.BD_DOUTD);
             sC.MappingName = "KOLE";
-            sC.HeaderText = "Ед.";
+            sC.HeaderText = "Р•Рґ.";
             sC.Width = 43;
             sC.AlternatingBackColor = colGreen;
             sC.AlternatingBackColorSpec = colSpec;
@@ -1042,14 +1045,14 @@ namespace SkladGP
 
             //colTB = new DataGridTextBoxColumn();
             //colTB.MappingName = "NPODD";
-            //colTB.HeaderText = "№Пд";
+            //colTB.HeaderText = "в„–РџРґ";
             //colTB.Width = 25;
             //colTB.NullText = "";
             //ts.GridColumnStyles.Add(colTB);
 
             colTB = new DataGridTextBoxColumn();
             colTB.MappingName = "NPODDZ";
-            colTB.HeaderText = "ПдЗ";
+            colTB.HeaderText = "РџРґР—";
             colTB.Width = 25;
             colTB.NullText = "";
             ts.GridColumnStyles.Add(colTB);
@@ -1062,7 +1065,7 @@ namespace SkladGP
 
             sC = new ServClass.DGTBoxColorColumn(dg, NSI.BD_DOUTD);
             sC.MappingName = "KTARA";
-            sC.HeaderText = "Тара";
+            sC.HeaderText = "РўР°СЂР°";
             sC.Width = 35;
             sC.NullText = "";
             sC.Alignment = HorizontalAlignment.Right;
@@ -1070,25 +1073,25 @@ namespace SkladGP
 
             dg.TableStyles.Add(ts);
 
-            /// *************************** для заявок ************************
-            ts = new DataGridTableStyle();                                      // в режиме обычного просмотра
+            /// *************************** РґР»СЏ Р·Р°СЏРІРѕРє ************************
+            ts = new DataGridTableStyle();                                      // РІ СЂРµР¶РёРјРµ РѕР±С‹С‡РЅРѕРіРѕ РїСЂРѕСЃРјРѕС‚СЂР°
             ts.MappingName = GDET_ZVK.ToString();
 
-            tsK = new DataGridTableStyle();                                     // в режиме комплектации
+            tsK = new DataGridTableStyle();                                     // РІ СЂРµР¶РёРјРµ РєРѕРјРїР»РµРєС‚Р°С†РёРё
             tsK.MappingName = GDET_ZVK_KMPL.ToString();
 
-            tsKV = new DataGridTableStyle();                                     // в режиме комплектации
+            tsKV = new DataGridTableStyle();                                     // РІ СЂРµР¶РёРјРµ РєРѕРјРїР»РµРєС‚Р°С†РёРё
             tsKV.MappingName = GDET_ZVK_KMPLV.ToString();
 
             //sC = new ServClass.DGTBoxColorColumn(dg, NSI.BD_DIND);
             //sC.MappingName = "NPODDZ";
-            //sC.HeaderText = "Пд";
+            //sC.HeaderText = "РџРґ";
             //sC.Width = 22;
             //tsK.GridColumnStyles.Add(sC);
 
             sC = new ServClass.DGTBoxColorColumn(dg, NSI.BD_DIND);
             sC.MappingName = "NPP";
-            sC.HeaderText = "№";
+            sC.HeaderText = "в„–";
             sC.Width = 30;
             sC.Alignment = HorizontalAlignment.Right;
             tsK.GridColumnStyles.Add(sC);
@@ -1096,7 +1099,7 @@ namespace SkladGP
 
             sC = new ServClass.DGTBoxColorColumn(dg, NSI.BD_DIND);
             sC.MappingName = "KRKMC";
-            sC.HeaderText = "Код";
+            sC.HeaderText = "РљРѕРґ";
             sC.Width = 30;
             sC.Alignment = HorizontalAlignment.Right;
             ts.GridColumnStyles.Add(sC);
@@ -1105,14 +1108,14 @@ namespace SkladGP
 
             sC = new ServClass.DGTBoxColorColumn(dg, NSI.BD_DIND);
             sC.MappingName = "SNM";
-            sC.HeaderText = "Наименование";
+            sC.HeaderText = "РќР°РёРјРµРЅРѕРІР°РЅРёРµ";
             sC.Width = 136;
             ts.GridColumnStyles.Add(sC);
             //tsK.GridColumnStyles.Add(sC);
 
             sC = new ServClass.DGTBoxColorColumn(dg, NSI.BD_DIND);
             sC.MappingName = "EMK";
-            sC.HeaderText = "Емк";
+            sC.HeaderText = "Р•РјРє";
             sC.Width = 28;
             sC.Alignment = HorizontalAlignment.Right;
             //ts.GridColumnStyles.Add(sC);
@@ -1123,7 +1126,7 @@ namespace SkladGP
             sC.AlternatingBackColor = colGreen;
             sC.AlternatingBackColorSpec = Color.Azure;
             sC.MappingName = "KOLM";
-            sC.HeaderText = "Мест";
+            sC.HeaderText = "РњРµСЃС‚";
             sC.Width = 36;
             sC.Alignment = HorizontalAlignment.Right;
             ts.GridColumnStyles.Add(sC);
@@ -1134,7 +1137,7 @@ namespace SkladGP
             sC.AlternatingBackColor = colGreen;
             sC.AlternatingBackColorSpec = colSpec;
             sC.MappingName = "KOLE";
-            sC.HeaderText = "Ед.";
+            sC.HeaderText = "Р•Рґ.";
             sC.Width = 45;
             sC.Alignment = HorizontalAlignment.Right;
             ts.GridColumnStyles.Add(sC);
@@ -1142,7 +1145,7 @@ namespace SkladGP
 
             sC = new ServClass.DGTBoxColorColumn(dg, NSI.BD_DIND);
             sC.MappingName = "EMK";
-            sC.HeaderText = "Емк";
+            sC.HeaderText = "Р•РјРє";
             sC.Width = 28;
             sC.Alignment = HorizontalAlignment.Right;
             ts.GridColumnStyles.Add(sC);
@@ -1152,7 +1155,7 @@ namespace SkladGP
             sC.AlternatingBackColor = colGreen;
             sC.AlternatingBackColorSpec = colSpec;
             sC.MappingName = "DVR";
-            sC.HeaderText = "Дврб";
+            sC.HeaderText = "Р”РІСЂР±";
             sC.Width = 34;
             sC.Alignment = HorizontalAlignment.Right;
             ts.GridColumnStyles.Add(sC);
@@ -1161,7 +1164,7 @@ namespace SkladGP
 
             sC = new ServClass.DGTBoxColorColumn(dg, NSI.BD_DIND);
             sC.MappingName = "NP";
-            sC.HeaderText = "№ Пт";
+            sC.HeaderText = "в„– РџС‚";
             sC.Width = 36;
             sC.NullText = "";
             sC.Alignment = HorizontalAlignment.Right;
@@ -1172,7 +1175,7 @@ namespace SkladGP
 
             sC = new ServClass.DGTBoxColorColumn(dg, NSI.BD_DIND);
             sC.MappingName = "KRKPP";
-            sC.HeaderText = "П-ль";
+            sC.HeaderText = "Рџ-Р»СЊ";
             sC.Width = 36;
             sC.NullText = "";
             sC.Alignment = HorizontalAlignment.Left;
@@ -1182,7 +1185,7 @@ namespace SkladGP
             sC.AlternatingBackColor = colGreen;
             sC.AlternatingBackColorSpec = colSpec;
             sC.MappingName = "DTG";
-            sC.HeaderText = "Дгодн";
+            sC.HeaderText = "Р”РіРѕРґРЅ";
             sC.Width = 34;
             sC.Alignment = HorizontalAlignment.Right;
             ts.GridColumnStyles.Add(sC);
@@ -1193,7 +1196,7 @@ namespace SkladGP
             sC.AlternatingBackColor = colGreen;
             sC.AlternatingBackColorSpec = colSpec;
             sC.MappingName = "KOLE";
-            sC.HeaderText = "Ед.";
+            sC.HeaderText = "Р•Рґ.";
             sC.Width = 45;
             sC.Alignment = HorizontalAlignment.Right;
             //ts.GridColumnStyles.Add(sC);
@@ -1203,7 +1206,7 @@ namespace SkladGP
             sC = new ServClass.DGTBoxColorColumn(dg, NSI.BD_DIND);
             //c.MappingName = "KRKT";
             sC.MappingName = "KTARA";
-            sC.HeaderText = "Тара";
+            sC.HeaderText = "РўР°СЂР°";
             sC.Width = 35;
             sC.NullText = "";
             sC.Alignment = HorizontalAlignment.Right;
@@ -1265,19 +1268,19 @@ namespace SkladGP
             return (sRet);
         }
 
-        // смена стиля таблицы
-        // nSt - требуемый стиль
+        // СЃРјРµРЅР° СЃС‚РёР»СЏ С‚Р°Р±Р»РёС†С‹
+        // nSt - С‚СЂРµР±СѓРµРјС‹Р№ СЃС‚РёР»СЊ
         public void ChgGridStyle(string iT, int nSt)
         {
             if (DT[iT].nGrdStyle != -1)
-            {                                                           // НЕ первичная установка
+            {                                                           // РќР• РїРµСЂРІРёС‡РЅР°СЏ СѓСЃС‚Р°РЅРѕРІРєР°
                 int nOld = DT[iT].nGrdStyle;
                 string sCurStyle = DT[iT].dg.TableStyles[nOld].MappingName;
 
-                // очистка текущей
+                // РѕС‡РёСЃС‚РєР° С‚РµРєСѓС‰РµР№
                 DT[iT].dg.TableStyles[nOld].MappingName = nOld.ToString();
                 if (nSt == GDOC_NEXT)
-                {                                                       // циклическая смена
+                {                                                       // С†РёРєР»РёС‡РµСЃРєР°СЏ СЃРјРµРЅР°
                     nSt = ((nOld + 1) == DT[iT].dg.TableStyles.Count) ? 0 : nOld + 1;
                 }
             }
@@ -1289,16 +1292,16 @@ namespace SkladGP
         //{
         //    string ret = "";
         //    if (i == GDOC_CENTR)
-        //        ret = "Цтр";
+        //        ret = "Р¦С‚СЂ";
         //    else if (i == GDOC_INV)
-        //        ret = "Инв";
+        //        ret = "РРЅРІ";
         //    else if (i == GDOC_SAM)
-        //        ret = "Сам";
+        //        ret = "РЎР°Рј";
         //    return (ret);
         //}
 
 
-        // характеристики для одной таблицы
+        // С…Р°СЂР°РєС‚РµСЂРёСЃС‚РёРєРё РґР»СЏ РѕРґРЅРѕР№ С‚Р°Р±Р»РёС†С‹
         public DataRow BD_TINF_RW(string sTName)
         {
             DataRow 
@@ -1320,8 +1323,8 @@ namespace SkladGP
 
         private DataView
             dvEmk = null;
-        // действия по окончании загрузки справочника в память
-        // после инициализации любой из таблиц
+        // РґРµР№СЃС‚РІРёСЏ РїРѕ РѕРєРѕРЅС‡Р°РЅРёРё Р·Р°РіСЂСѓР·РєРё СЃРїСЂР°РІРѕС‡РЅРёРєР° РІ РїР°РјСЏС‚СЊ
+        // РїРѕСЃР»Рµ РёРЅРёС†РёР°Р»РёР·Р°С†РёРё Р»СЋР±РѕР№ РёР· С‚Р°Р±Р»РёС†
         public int AfterLoadNSI(string sTName, bool bFromSrv, string sFileFromSrv)
         {
             int 
@@ -1375,7 +1378,7 @@ namespace SkladGP
                     break;
                 case NSI.NS_SEMK:
                     if (sFileFromSrv.Length > 0)
-                    {// справочник пришел от сервера
+                    {// СЃРїСЂР°РІРѕС‡РЅРёРє РїСЂРёС€РµР» РѕС‚ СЃРµСЂРІРµСЂР°
                         try
                         {
                             foreach (DataRow dr in DT[NS_SEMK].dt.Rows)
@@ -1391,7 +1394,7 @@ namespace SkladGP
                         catch { nKr = 28; }
                     }
                     else
-                    {// локальная загрузка (подготовка поиска)
+                    {// Р»РѕРєР°Р»СЊРЅР°СЏ Р·Р°РіСЂСѓР·РєР° (РїРѕРґРіРѕС‚РѕРІРєР° РїРѕРёСЃРєР°)
                         DT[NSI.NS_SEMK].SetAddSort("KMC");
                         DT[NSI.NS_SEMK].SetAddSort("GTIN");
                     }
@@ -1437,7 +1440,7 @@ namespace SkladGP
             DataRow 
                 dr = null;
 
-            if (DT[NS_MC].nState > DT_STATE_INIT)  // справочник загружен
+            if (DT[NS_MC].nState > DT_STATE_INIT)  // СЃРїСЂР°РІРѕС‡РЅРёРє Р·Р°РіСЂСѓР¶РµРЅ
             {
                 string sss = 
                     String.Format("EAN13 LIKE '{0}%'", sEAN);
@@ -1448,7 +1451,7 @@ namespace SkladGP
                     if (xRowDView.Count > 1)
                     {
                         if (bShowErr)
-                            Srv.ErrorMsg(String.Format("EAN={0}\nСканируйте ITF({1})", sEAN, s.ci.ToString()), "Неоднозначность!", true);
+                            Srv.ErrorMsg(String.Format("EAN={0}\nРЎРєР°РЅРёСЂСѓР№С‚Рµ ITF({1})", sEAN, s.ci.ToString()), "РќРµРѕРґРЅРѕР·РЅР°С‡РЅРѕСЃС‚СЊ!", true);
                         return (false);
                     }
                     else
@@ -1457,7 +1460,7 @@ namespace SkladGP
                     if (!ret)
                     {
                         if (bShowErr)
-                            Srv.ErrorMsg(String.Format("EAN={0}", sEAN), "Не найдено в НСИ!", true);
+                            Srv.ErrorMsg(String.Format("EAN={0}", sEAN), "РќРµ РЅР°Р№РґРµРЅРѕ РІ РќРЎР!", true);
                     }
                 }
             }
@@ -1474,7 +1477,7 @@ namespace SkladGP
             DataRow
                 dr = null;
 
-            if (DT[NS_MC].nState > DT_STATE_INIT)  // справочник загружен
+            if (DT[NS_MC].nState > DT_STATE_INIT)  // СЃРїСЂР°РІРѕС‡РЅРёРє Р·Р°РіСЂСѓР¶РµРЅ
             {
                 if ((sKMCFull.Length == 0) && (nKrKMC > 0))
                 {
@@ -1482,7 +1485,7 @@ namespace SkladGP
                     if (dr != null)
                         sKMCFull = (string)dr["KMC"];
                 }
-                if (sKMCFull.Length == 0)              // это не Code128, EAN13 с кратким кодом 
+                if (sKMCFull.Length == 0)              // СЌС‚Рѕ РЅРµ Code128, EAN13 СЃ РєСЂР°С‚РєРёРј РєРѕРґРѕРј 
                 {
                     DataRow[] dra;
                     dra = dt.Select(String.Format("KRKMC={0}", s.nKrKMC));
@@ -1497,7 +1500,7 @@ namespace SkladGP
                 if (!ret)
                 {
                     if (bShowErr)
-                        Srv.ErrorMsg(String.Format("KMC={0}\nКод={1}", sKMCFull, nKrKMC), "Не найдено в НСИ!", true);
+                        Srv.ErrorMsg(String.Format("KMC={0}\nРљРѕРґ={1}", sKMCFull, nKrKMC), "РќРµ РЅР°Р№РґРµРЅРѕ РІ РќРЎР!", true);
                 }
                 //else
                 //{
@@ -1515,7 +1518,7 @@ namespace SkladGP
         }
 
 
-        // поиск среди внутренних кодов получателей
+        // РїРѕРёСЃРє СЃСЂРµРґРё РІРЅСѓС‚СЂРµРЅРЅРёС… РєРѕРґРѕРІ РїРѕР»СѓС‡Р°С‚РµР»РµР№
         internal bool IsAlien(string sEAN13, ref PSC_Types.ScDat s)
         {
             string 
@@ -1528,7 +1531,7 @@ namespace SkladGP
             DataRow dr = null;
             DataRow[] dra = null;
 
-            if (DT[NS_KRUS].nState > DT_STATE_INIT)     // справочник загружен
+            if (DT[NS_KRUS].nState > DT_STATE_INIT)     // СЃРїСЂР°РІРѕС‡РЅРёРє Р·Р°РіСЂСѓР¶РµРЅ
             {
                 //sFind = sEAN13.Substring(0, 7);
 
@@ -1575,7 +1578,7 @@ namespace SkladGP
                 dt = DT[NSI.BD_DIND].dt,
                 dtD = DT[NSI.BD_DOUTD].dt;
 
-            // список номеров поддонов из накладных
+            // СЃРїРёСЃРѕРє РЅРѕРјРµСЂРѕРІ РїРѕРґРґРѕРЅРѕРІ РёР· РЅР°РєР»Р°РґРЅС‹С…
             DataView dv1 = new DataView(dtD, xD.DefDetFilter(), "", DataViewRowState.CurrentRows);
             DataTable dtN1 = dv1.ToTable(true, "NPODDZ");
 
@@ -1583,11 +1586,11 @@ namespace SkladGP
 
             if (xD.xDocP.TypOper == AppC.TYPOP_KMPL)
             {
-                // список номеров поддонов из заявок
+                // СЃРїРёСЃРѕРє РЅРѕРјРµСЂРѕРІ РїРѕРґРґРѕРЅРѕРІ РёР· Р·Р°СЏРІРѕРє
                 DataView dv = new DataView(dt, xD.DefDetFilter(), "", DataViewRowState.CurrentRows);
                 DataTable dtN = dv.ToTable(true, "NPODDZ");
 
-                // это свободная комплектация?
+                // СЌС‚Рѕ СЃРІРѕР±РѕРґРЅР°СЏ РєРѕРјРїР»РµРєС‚Р°С†РёСЏ?
                 if ((dtN.Rows.Count == 1) && ((int)(dtN.Rows[0]["NPODDZ"]) > 0))
                 {
                     xD.bFreeKMPL = true;
@@ -1626,7 +1629,7 @@ namespace SkladGP
 
 
 
-        // чтение текущей строки в объект панели документов
+        // С‡С‚РµРЅРёРµ С‚РµРєСѓС‰РµР№ СЃС‚СЂРѕРєРё РІ РѕР±СЉРµРєС‚ РїР°РЅРµР»Рё РґРѕРєСѓРјРµРЅС‚РѕРІ
         public bool InitCurDoc(CurDoc xD, Smena xS)
         {
             bool ret = false;
@@ -1694,7 +1697,7 @@ namespace SkladGP
 
 
 
-        // заполнение строки таблицы документов
+        // Р·Р°РїРѕР»РЅРµРЅРёРµ СЃС‚СЂРѕРєРё С‚Р°Р±Р»РёС†С‹ РґРѕРєСѓРјРµРЅС‚РѕРІ
         public bool UpdateDocRec(DataRow dr, CurDoc xD)
         {
             bool 
@@ -1766,7 +1769,7 @@ namespace SkladGP
             return(ret);
         }
 
-        // добавление новой записи в документы
+        // РґРѕР±Р°РІР»РµРЅРёРµ РЅРѕРІРѕР№ Р·Р°РїРёСЃРё РІ РґРѕРєСѓРјРµРЅС‚С‹
         public bool AddDocRec(CurDoc xD)
         {
             bool 
@@ -1792,7 +1795,7 @@ namespace SkladGP
             return (ret);
         }
 
-        // чтение текущей детальной строки
+        // С‡С‚РµРЅРёРµ С‚РµРєСѓС‰РµР№ РґРµС‚Р°Р»СЊРЅРѕР№ СЃС‚СЂРѕРєРё
         public bool InitCurProd(ref PSC_Types.ScDat scD, DataRow drD)
         {
             bool 
@@ -1879,7 +1882,7 @@ namespace SkladGP
 
 
 
-        // сохранение текущей детальной строки
+        // СЃРѕС…СЂР°РЅРµРЅРёРµ С‚РµРєСѓС‰РµР№ РґРµС‚Р°Р»СЊРЅРѕР№ СЃС‚СЂРѕРєРё
         public DataRow AddDet(PSC_Types.ScDat s, CurDoc xCurrentDoc, DataRow drOld, bool bAddNew)
         {
             int
@@ -1941,7 +1944,7 @@ namespace SkladGP
                     ret["ADRFROM"] = s.xOp.GetSrc(false);
                     ret["ADRTO"] = s.xOp.GetDst(false);
 
-                    // отладка чудес всяких
+                    // РѕС‚Р»Р°РґРєР° С‡СѓРґРµСЃ РІСЃСЏРєРёС…
                     ret["GKMC"] = s.s;
 
                     /// changed 11.04.17
@@ -1976,7 +1979,7 @@ namespace SkladGP
                 }
                 catch
                 {
-                    Srv.ErrorMsg("Ошибка добавления продукции!");
+                    Srv.ErrorMsg("РћС€РёР±РєР° РґРѕР±Р°РІР»РµРЅРёСЏ РїСЂРѕРґСѓРєС†РёРё!");
                 }
             }
             else
@@ -1991,7 +1994,7 @@ namespace SkladGP
             return(ret);
         }
 
-        // подготовка DataSet для выгрузки
+        // РїРѕРґРіРѕС‚РѕРІРєР° DataSet РґР»СЏ РІС‹РіСЂСѓР·РєРё
         //public DataSet MakeWorkDataSet_(DataTable dtM, DataTable dtD, DataRow[] drA, Smena xSm, CurUpLoad xCU)
         //{
 
@@ -2013,7 +2016,7 @@ namespace SkladGP
         //        dtMastNew.LoadDataRow(dr.ItemArray, true);
 
         //        if (xCU.bOnlyCurRow)
-        //            // автоматическая выгрузка одной строки по окончании операции
+        //            // Р°РІС‚РѕРјР°С‚РёС‡РµСЃРєР°СЏ РІС‹РіСЂСѓР·РєР° РѕРґРЅРѕР№ СЃС‚СЂРѕРєРё РїРѕ РѕРєРѕРЅС‡Р°РЅРёРё РѕРїРµСЂР°С†РёРё
         //            childRows = new DataRow[]{ xCU.drForUpl };
         //        else
         //            childRows = dr.GetChildRows(myRelation);
@@ -2075,7 +2078,7 @@ namespace SkladGP
 
 
 
-        // подготовка DataSet для выгрузки
+        // РїРѕРґРіРѕС‚РѕРІРєР° DataSet РґР»СЏ РІС‹РіСЂСѓР·РєРё
         public DataSet MakeWorkDataSet(DataTable dtM, DataTable dtD, DataRow[] drA, DataRow[] drDetReady, 
             Smena xSm, CurUpLoad xCU)
         {
@@ -2108,16 +2111,16 @@ namespace SkladGP
 
                 //if (xCU.sCurUplCommand == AppC.COM_ZSC2LST)
                 //    break;
-                // для SSCC выгружаем только заголовок
+                // РґР»СЏ SSCC РІС‹РіСЂСѓР¶Р°РµРј С‚РѕР»СЊРєРѕ Р·Р°РіРѕР»РѕРІРѕРє
                 if ((xCU.sCurUplCommand == AppC.COM_ZSC2LST) ||
                      (xCU.sCurUplCommand == AppC.COM_ADR2CNT) )
                     break;
 
 
                 if (drDetReady == null)
-                {// массив детальных строк еще не готов
+                {// РјР°СЃСЃРёРІ РґРµС‚Р°Р»СЊРЅС‹С… СЃС‚СЂРѕРє РµС‰Рµ РЅРµ РіРѕС‚РѕРІ
                     if (xCU.bOnlyCurRow)
-                        // автоматическая выгрузка одной строки по окончании операции
+                        // Р°РІС‚РѕРјР°С‚РёС‡РµСЃРєР°СЏ РІС‹РіСЂСѓР·РєР° РѕРґРЅРѕР№ СЃС‚СЂРѕРєРё РїРѕ РѕРєРѕРЅС‡Р°РЅРёРё РѕРїРµСЂР°С†РёРё
                         childRows = new DataRow[] { xCU.drForUpl };
                     else
                         childRows = dr.GetChildRows(myRelation);
@@ -2131,17 +2134,17 @@ namespace SkladGP
                     try
                     {
                         bNeedRow = true;
-                        #region Необходимость включения детальной строки
+                        #region РќРµРѕР±С…РѕРґРёРјРѕСЃС‚СЊ РІРєР»СЋС‡РµРЅРёСЏ РґРµС‚Р°Р»СЊРЅРѕР№ СЃС‚СЂРѕРєРё
                         do
                         {
                             if (drDetReady != null)
-                                // все подготовленные строки войдут в выгрузку
+                                // РІСЃРµ РїРѕРґРіРѕС‚РѕРІР»РµРЅРЅС‹Рµ СЃС‚СЂРѕРєРё РІРѕР№РґСѓС‚ РІ РІС‹РіСЂСѓР·РєСѓ
                                 break;
 
                             if ((int)dr["TYPOP"] != AppC.TYPOP_DOCUM)
-                            {// для операционного режима могут быть варианты...
+                            {// РґР»СЏ РѕРїРµСЂР°С†РёРѕРЅРЅРѕРіРѕ СЂРµР¶РёРјР° РјРѕРіСѓС‚ Р±С‹С‚СЊ РІР°СЂРёР°РЅС‚С‹...
                                 if ((AppC.OPR_STATE)chRow["STATE"] == AppC.OPR_STATE.OPR_TRANSFERED)
-                                {// операция уже выгружалась
+                                {// РѕРїРµСЂР°С†РёСЏ СѓР¶Рµ РІС‹РіСЂСѓР¶Р°Р»Р°СЃСЊ
                                     bNeedRow = false;
                                 }
                                 else
@@ -2161,7 +2164,7 @@ namespace SkladGP
                                         sS = (chRow["SSCC"] == System.DBNull.Value) ? "" : "1";
                                         sS += (chRow["SSCCINT"] == System.DBNull.Value) ? "" : "2";
                                         if (sS.Length == 0)
-                                        {// неотмаркированная продукция 
+                                        {// РЅРµРѕС‚РјР°СЂРєРёСЂРѕРІР°РЅРЅР°СЏ РїСЂРѕРґСѓРєС†РёСЏ 
                                             if (((int)dr["TYPOP"] == AppC.TYPOP_MARK) ||
                                                 ((int)dr["TYPOP"] == AppC.TYPOP_KMPL))
                                                 bNeedRow = false;
@@ -2186,12 +2189,12 @@ namespace SkladGP
                     {
                         drAdded = dtDetNew.LoadDataRow(chRow.ItemArray, true);
                         //if (((int)drAdded["SYSPRD"] < 0) && ((SRCDET)drAdded["SRC"] == NSI.SRCDET.SCAN))
-                        //{// это материал
+                        //{// СЌС‚Рѕ РјР°С‚РµСЂРёР°Р»
                         //    drAdded["NP"] = "";
                         //}
 
                         if ((int)drAdded["SYSPRD"] < 0) 
-                        {// это материал
+                        {// СЌС‚Рѕ РјР°С‚РµСЂРёР°Р»
                             drAdded["NP"] = "";
                         }
 
@@ -2253,7 +2256,7 @@ namespace SkladGP
             return (dtOut);
         }
 
-        // датасет для заявок
+        // РґР°С‚Р°СЃРµС‚ РґР»СЏ Р·Р°СЏРІРѕРє
         public DataSet MakeDataSetForLoad(DataTable dtM, DataTable dtD, DataTable dtSSCC, string sDSName)
         {
 
@@ -2277,7 +2280,7 @@ namespace SkladGP
             dsWZvk.Tables.Add(dtPictNew);
 
             if (sDSName == "dsZ")
-            {// загрузка документа
+            {// Р·Р°РіСЂСѓР·РєР° РґРѕРєСѓРјРµРЅС‚Р°
                 dtMastNew.TableName = BD_ZDOC;
                 dtDetNew.TableName = BD_ZDET;
 
@@ -2297,7 +2300,7 @@ namespace SkladGP
 
         private string sP_CSDat = "CSDat.xml";
 
-        /// восстановить сохраненные данные
+        /// РІРѕСЃСЃС‚Р°РЅРѕРІРёС‚СЊ СЃРѕС…СЂР°РЅРµРЅРЅС‹Рµ РґР°РЅРЅС‹Рµ
         public int DSRestore(string sDS, DateTime dCur, int nMaxD, bool bControlDate)
         {
             int i = 0,
@@ -2336,7 +2339,7 @@ namespace SkladGP
                     }
                 }
                 catch (Exception ee)
-                {// ну, значит, не было 
+                {// РЅСѓ, Р·РЅР°С‡РёС‚, РЅРµ Р±С‹Р»Рѕ 
                     nRet = AppC.RC_CANCEL;
                 }
 

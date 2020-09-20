@@ -1,4 +1,4 @@
-namespace SkladGP
+п»їnamespace SkladGP
 {
     partial class MainF
     {
@@ -187,6 +187,7 @@ namespace SkladGP
             this.tbPanP2G = new System.Windows.Forms.TextBox();
             this.lpnLoadInfG = new System.Windows.Forms.Label();
             this.lFuncNamePanG = new System.Windows.Forms.Label();
+            this.lTime2Load = new System.Windows.Forms.Label();
             this.tpNSI.SuspendLayout();
             this.tcMain.SuspendLayout();
             this.tpDoc.SuspendLayout();
@@ -227,7 +228,7 @@ namespace SkladGP
             this.tpNSI.Location = new System.Drawing.Point(4, 25);
             this.tpNSI.Name = "tpNSI";
             this.tpNSI.Size = new System.Drawing.Size(232, 291);
-            this.tpNSI.Text = "Справочник";
+            this.tpNSI.Text = "РЎРїСЂР°РІРѕС‡РЅРёРє";
             // 
             // lSrvLoadNsi
             // 
@@ -236,7 +237,7 @@ namespace SkladGP
             this.lSrvLoadNsi.Location = new System.Drawing.Point(1, 245);
             this.lSrvLoadNsi.Name = "lSrvLoadNsi";
             this.lSrvLoadNsi.Size = new System.Drawing.Size(92, 18);
-            this.lSrvLoadNsi.Text = "Сервер <F4>";
+            this.lSrvLoadNsi.Text = "РЎРµСЂРІРµСЂ <F4>";
             // 
             // tNsiLoadPort
             // 
@@ -272,7 +273,7 @@ namespace SkladGP
             this.tNsiInf.Size = new System.Drawing.Size(230, 20);
             this.tNsiInf.TabIndex = 29;
             this.tNsiInf.Tag = "";
-            this.tNsiInf.Text = " Записей - ";
+            this.tNsiInf.Text = " Р—Р°РїРёСЃРµР№ - ";
             // 
             // lNsiInf
             // 
@@ -281,7 +282,7 @@ namespace SkladGP
             this.lNsiInf.Name = "lNsiInf";
             this.lNsiInf.Size = new System.Drawing.Size(228, 20);
             this.lNsiInf.Tag = "Inf";
-            this.lNsiInf.Text = "Справочник";
+            this.lNsiInf.Text = "РЎРїСЂР°РІРѕС‡РЅРёРє";
             this.lNsiInf.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // dgMC
@@ -318,7 +319,7 @@ namespace SkladGP
             this.tpDoc.Location = new System.Drawing.Point(4, 25);
             this.tpDoc.Name = "tpDoc";
             this.tpDoc.Size = new System.Drawing.Size(232, 291);
-            this.tpDoc.Text = "Документы";
+            this.tpDoc.Text = "Р”РѕРєСѓРјРµРЅС‚С‹";
             // 
             // lInfDocAll
             // 
@@ -327,7 +328,7 @@ namespace SkladGP
             this.lInfDocAll.Location = new System.Drawing.Point(65, 2);
             this.lInfDocAll.Name = "lInfDocAll";
             this.lInfDocAll.Size = new System.Drawing.Size(100, 18);
-            this.lInfDocAll.Text = "Все";
+            this.lInfDocAll.Text = "Р’СЃРµ";
             this.lInfDocAll.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // lInfDocLeft
@@ -352,6 +353,7 @@ namespace SkladGP
             // pnPars
             // 
             this.pnPars.BackColor = System.Drawing.Color.DarkBlue;
+            this.pnPars.Controls.Add(this.lTime2Load);
             this.pnPars.Controls.Add(this.tDocCtrlState);
             this.pnPars.Controls.Add(this.tDocAlpState);
             this.pnPars.Controls.Add(this.tStat_GSt);
@@ -393,7 +395,7 @@ namespace SkladGP
             this.tDocCtrlState.TabIndex = 50;
             this.tDocCtrlState.TabStop = false;
             this.tDocCtrlState.Tag = "Inf";
-            this.tDocCtrlState.Text = "Ф";
+            this.tDocCtrlState.Text = "Р¤";
             this.tDocCtrlState.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // tDocAlpState
@@ -425,7 +427,7 @@ namespace SkladGP
             this.tStat_GSt.TabIndex = 41;
             this.tStat_GSt.TabStop = false;
             this.tStat_GSt.Tag = "Inf";
-            this.tStat_GSt.Text = "Сам";
+            this.tStat_GSt.Text = "РЎР°Рј";
             this.tStat_GSt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lNomDoc
@@ -435,7 +437,7 @@ namespace SkladGP
             this.lNomDoc.Location = new System.Drawing.Point(157, 41);
             this.lNomDoc.Name = "lNomDoc";
             this.lNomDoc.Size = new System.Drawing.Size(72, 18);
-            this.lNomDoc.Text = " № док-та";
+            this.lNomDoc.Text = " в„– РґРѕРє-С‚Р°";
             // 
             // tStat_Reg
             // 
@@ -450,7 +452,7 @@ namespace SkladGP
             this.tStat_Reg.TabIndex = 29;
             this.tStat_Reg.TabStop = false;
             this.tStat_Reg.Tag = "Inf";
-            this.tStat_Reg.Text = "Новый";
+            this.tStat_Reg.Text = "РќРѕРІС‹Р№";
             this.tStat_Reg.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // tKSkl_p
@@ -477,7 +479,7 @@ namespace SkladGP
             this.tNPol_p.ReadOnly = true;
             this.tNPol_p.Size = new System.Drawing.Size(228, 18);
             this.tNPol_p.TabIndex = 11;
-            this.tNPol_p.Text = "ТП ЗАО \"Дрымтымтым\"";
+            this.tNPol_p.Text = "РўРџ Р—РђРћ \"Р”СЂС‹РјС‚С‹РјС‚С‹Рј\"";
             // 
             // tNom_p
             // 
@@ -531,7 +533,7 @@ namespace SkladGP
             this.tNEks_p.ReadOnly = true;
             this.tNEks_p.Size = new System.Drawing.Size(228, 18);
             this.tNEks_p.TabIndex = 10;
-            this.tNEks_p.Text = "Фамилия И.О.";
+            this.tNEks_p.Text = "Р¤Р°РјРёР»РёСЏ Р.Рћ.";
             // 
             // lKUch
             // 
@@ -540,7 +542,7 @@ namespace SkladGP
             this.lKUch.Location = new System.Drawing.Point(187, 1);
             this.lKUch.Name = "lKUch";
             this.lKUch.Size = new System.Drawing.Size(23, 18);
-            this.lKUch.Text = "Уч";
+            this.lKUch.Text = "РЈС‡";
             // 
             // tKUch_p
             // 
@@ -566,7 +568,7 @@ namespace SkladGP
             this.tNT_p.ReadOnly = true;
             this.tNT_p.Size = new System.Drawing.Size(88, 18);
             this.tNT_p.TabIndex = 9;
-            this.tNT_p.Text = "Центровывоз";
+            this.tNT_p.Text = "Р¦РµРЅС‚СЂРѕРІС‹РІРѕР·";
             // 
             // tKT_p
             // 
@@ -592,7 +594,7 @@ namespace SkladGP
             this.lEksped.Location = new System.Drawing.Point(1, 61);
             this.lEksped.Name = "lEksped";
             this.lEksped.Size = new System.Drawing.Size(64, 18);
-            this.lEksped.Text = "Экспед-р";
+            this.lEksped.Text = "Р­РєСЃРїРµРґ-СЂ";
             // 
             // lTyp
             // 
@@ -601,7 +603,7 @@ namespace SkladGP
             this.lTyp.Location = new System.Drawing.Point(1, 41);
             this.lTyp.Name = "lTyp";
             this.lTyp.Size = new System.Drawing.Size(42, 18);
-            this.lTyp.Text = "Тип";
+            this.lTyp.Text = "РўРёРї";
             // 
             // tNSkl_p
             // 
@@ -613,7 +615,7 @@ namespace SkladGP
             this.tNSkl_p.ReadOnly = true;
             this.tNSkl_p.Size = new System.Drawing.Size(108, 18);
             this.tNSkl_p.TabIndex = 8;
-            this.tNSkl_p.Text = "Масло";
+            this.tNSkl_p.Text = "РњР°СЃР»Рѕ";
             // 
             // tSm_p
             // 
@@ -636,7 +638,7 @@ namespace SkladGP
             this.lSmena.Location = new System.Drawing.Point(157, 21);
             this.lSmena.Name = "lSmena";
             this.lSmena.Size = new System.Drawing.Size(28, 18);
-            this.lSmena.Text = "См";
+            this.lSmena.Text = "РЎРј";
             // 
             // lPoluch
             // 
@@ -645,7 +647,7 @@ namespace SkladGP
             this.lPoluch.Location = new System.Drawing.Point(1, 101);
             this.lPoluch.Name = "lPoluch";
             this.lPoluch.Size = new System.Drawing.Size(64, 18);
-            this.lPoluch.Text = "Получ-ль";
+            this.lPoluch.Text = "РџРѕР»СѓС‡-Р»СЊ";
             // 
             // lSklad
             // 
@@ -654,7 +656,7 @@ namespace SkladGP
             this.lSklad.Location = new System.Drawing.Point(1, 1);
             this.lSklad.Name = "lSklad";
             this.lSklad.Size = new System.Drawing.Size(42, 18);
-            this.lSklad.Text = "Склад";
+            this.lSklad.Text = "РЎРєР»Р°Рґ";
             // 
             // tDateD_p
             // 
@@ -676,7 +678,7 @@ namespace SkladGP
             this.lDateDoc.Location = new System.Drawing.Point(1, 21);
             this.lDateDoc.Name = "lDateDoc";
             this.lDateDoc.Size = new System.Drawing.Size(42, 18);
-            this.lDateDoc.Text = "Дата";
+            this.lDateDoc.Text = "Р”Р°С‚Р°";
             // 
             // dgDoc
             // 
@@ -724,7 +726,7 @@ namespace SkladGP
             this.tpScan.Location = new System.Drawing.Point(4, 25);
             this.tpScan.Name = "tpScan";
             this.tpScan.Size = new System.Drawing.Size(232, 291);
-            this.tpScan.Text = "Ввод";
+            this.tpScan.Text = "Р’РІРѕРґ";
             // 
             // lObjDirection
             // 
@@ -776,7 +778,7 @@ namespace SkladGP
             this.tPartOfPal.TabIndex = 12;
             this.tPartOfPal.TabStop = false;
             this.tPartOfPal.Tag = "";
-            this.tPartOfPal.Text = "1-Пд";
+            this.tPartOfPal.Text = "1-РџРґ";
             this.tPartOfPal.WordWrap = false;
             // 
             // tCurrPoddon
@@ -808,7 +810,7 @@ namespace SkladGP
             this.tVvod_VESReg.TabIndex = 11;
             this.tVvod_VESReg.TabStop = false;
             this.tVvod_VESReg.Tag = "";
-            this.tVvod_VESReg.Text = "В-Д/Авт";
+            this.tVvod_VESReg.Text = "Р’-Р”/РђРІС‚";
             this.tVvod_VESReg.WordWrap = false;
             // 
             // tDatMC
@@ -821,7 +823,7 @@ namespace SkladGP
             this.tDatMC.Size = new System.Drawing.Size(99, 18);
             this.tDatMC.TabIndex = 5;
             this.tDatMC.TabStop = false;
-            this.tDatMC.Text = "29.08/23ч 22.04";
+            this.tDatMC.Text = "29.08/23С‡ 22.04";
             this.tDatMC.GotFocus += new System.EventHandler(this.SelAllTextF);
             this.tDatMC.Validating += new System.ComponentModel.CancelEventHandler(this.tDatMC_Validating);
             // 
@@ -866,7 +868,7 @@ namespace SkladGP
             this.tVvodReg.TabIndex = 9;
             this.tVvodReg.TabStop = false;
             this.tVvodReg.Tag = "";
-            this.tVvodReg.Text = "ТТН";
+            this.tVvodReg.Text = "РўРўРќ";
             this.tVvodReg.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lOst_vv
@@ -900,7 +902,7 @@ namespace SkladGP
             this.lKolVs.Location = new System.Drawing.Point(1, 253);
             this.lKolVs.Name = "lKolVs";
             this.lKolVs.Size = new System.Drawing.Size(48, 18);
-            this.lKolVs.Text = "Единиц";
+            this.lKolVs.Text = "Р•РґРёРЅРёС†";
             // 
             // tEmk
             // 
@@ -923,7 +925,7 @@ namespace SkladGP
             this.lEmk.Location = new System.Drawing.Point(1, 234);
             this.lEmk.Name = "lEmk";
             this.lEmk.Size = new System.Drawing.Size(48, 18);
-            this.lEmk.Text = "Емкость";
+            this.lEmk.Text = "Р•РјРєРѕСЃС‚СЊ";
             // 
             // lDateIzg
             // 
@@ -931,7 +933,7 @@ namespace SkladGP
             this.lDateIzg.Location = new System.Drawing.Point(94, 196);
             this.lDateIzg.Name = "lDateIzg";
             this.lDateIzg.Size = new System.Drawing.Size(34, 18);
-            this.lDateIzg.Text = "Дата";
+            this.lDateIzg.Text = "Р”Р°С‚Р°";
             // 
             // tParty
             // 
@@ -977,7 +979,7 @@ namespace SkladGP
             this.lKod.Location = new System.Drawing.Point(1, 177);
             this.lKod.Name = "lKod";
             this.lKod.Size = new System.Drawing.Size(48, 18);
-            this.lKod.Text = "Код";
+            this.lKod.Text = "РљРѕРґ";
             // 
             // dgDet
             // 
@@ -1008,7 +1010,7 @@ namespace SkladGP
             this.lParty.Location = new System.Drawing.Point(1, 196);
             this.lParty.Name = "lParty";
             this.lParty.Size = new System.Drawing.Size(48, 18);
-            this.lParty.Text = "Партия";
+            this.lParty.Text = "РџР°СЂС‚РёСЏ";
             // 
             // tMest
             // 
@@ -1033,7 +1035,7 @@ namespace SkladGP
             this.lMest.Location = new System.Drawing.Point(1, 215);
             this.lMest.Name = "lMest";
             this.lMest.Size = new System.Drawing.Size(48, 18);
-            this.lMest.Text = "Мест";
+            this.lMest.Text = "РњРµСЃС‚";
             // 
             // tEAN
             // 
@@ -1058,7 +1060,7 @@ namespace SkladGP
             this.lDocInf.Name = "lDocInf";
             this.lDocInf.Size = new System.Drawing.Size(228, 28);
             this.lDocInf.Tag = "Inf";
-            this.lDocInf.Text = "№ текущего документа - Получатель замечательной продукции";
+            this.lDocInf.Text = "в„– С‚РµРєСѓС‰РµРіРѕ РґРѕРєСѓРјРµРЅС‚Р° - РџРѕР»СѓС‡Р°С‚РµР»СЊ Р·Р°РјРµС‡Р°С‚РµР»СЊРЅРѕР№ РїСЂРѕРґСѓРєС†РёРё";
             this.lDocInf.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // tpSSCC
@@ -1079,7 +1081,7 @@ namespace SkladGP
             this.lDocInfSSCC.Name = "lDocInfSSCC";
             this.lDocInfSSCC.Size = new System.Drawing.Size(228, 32);
             this.lDocInfSSCC.Tag = "Inf";
-            this.lDocInfSSCC.Text = "№ текущего документа - Получатель замечательной продукции";
+            this.lDocInfSSCC.Text = "в„– С‚РµРєСѓС‰РµРіРѕ РґРѕРєСѓРјРµРЅС‚Р° - РџРѕР»СѓС‡Р°С‚РµР»СЊ Р·Р°РјРµС‡Р°С‚РµР»СЊРЅРѕР№ РїСЂРѕРґСѓРєС†РёРё";
             this.lDocInfSSCC.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // dgSSCC
@@ -1102,7 +1104,7 @@ namespace SkladGP
             this.lSSCCState.Name = "lSSCCState";
             this.lSSCCState.Size = new System.Drawing.Size(230, 19);
             this.lSSCCState.Tag = "";
-            this.lSSCCState.Text = "Всего SSCC = 0";
+            this.lSSCCState.Text = "Р’СЃРµРіРѕ SSCC = 0";
             // 
             // tpServ
             // 
@@ -1110,7 +1112,7 @@ namespace SkladGP
             this.tpServ.Location = new System.Drawing.Point(4, 25);
             this.tpServ.Name = "tpServ";
             this.tpServ.Size = new System.Drawing.Size(232, 291);
-            this.tpServ.Text = "Параметры";
+            this.tpServ.Text = "РџР°СЂР°РјРµС‚СЂС‹";
             // 
             // tcPars
             // 
@@ -1148,7 +1150,7 @@ namespace SkladGP
             this.tpParPaths.Location = new System.Drawing.Point(4, 25);
             this.tpParPaths.Name = "tpParPaths";
             this.tpParPaths.Size = new System.Drawing.Size(224, 261);
-            this.tpParPaths.Text = "Папки";
+            this.tpParPaths.Text = "РџР°РїРєРё";
             // 
             // chUseSrvG
             // 
@@ -1157,7 +1159,7 @@ namespace SkladGP
             this.chUseSrvG.Name = "chUseSrvG";
             this.chUseSrvG.Size = new System.Drawing.Size(147, 20);
             this.chUseSrvG.TabIndex = 12;
-            this.chUseSrvG.Text = "Группа серверов";
+            this.chUseSrvG.Text = "Р“СЂСѓРїРїР° СЃРµСЂРІРµСЂРѕРІ";
             // 
             // tNTPSrv
             // 
@@ -1186,7 +1188,7 @@ namespace SkladGP
             this.cbAutoSave.Name = "cbAutoSave";
             this.cbAutoSave.Size = new System.Drawing.Size(147, 20);
             this.cbAutoSave.TabIndex = 5;
-            this.cbAutoSave.Text = "Автосохранение";
+            this.cbAutoSave.Text = "РђРІС‚РѕСЃРѕС…СЂР°РЅРµРЅРёРµ";
             // 
             // lSavePars
             // 
@@ -1196,7 +1198,7 @@ namespace SkladGP
             this.lSavePars.Location = new System.Drawing.Point(23, 230);
             this.lSavePars.Name = "lSavePars";
             this.lSavePars.Size = new System.Drawing.Size(180, 18);
-            this.lSavePars.Text = "F2 - сохранить парметры";
+            this.lSavePars.Text = "F2 - СЃРѕС…СЂР°РЅРёС‚СЊ РїР°СЂРјРµС‚СЂС‹";
             this.lSavePars.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // lDataPath
@@ -1206,7 +1208,7 @@ namespace SkladGP
             this.lDataPath.Location = new System.Drawing.Point(4, 48);
             this.lDataPath.Name = "lDataPath";
             this.lDataPath.Size = new System.Drawing.Size(60, 18);
-            this.lDataPath.Text = "Данные";
+            this.lDataPath.Text = "Р”Р°РЅРЅС‹Рµ";
             // 
             // lNSIPath
             // 
@@ -1215,7 +1217,7 @@ namespace SkladGP
             this.lNSIPath.Location = new System.Drawing.Point(4, 26);
             this.lNSIPath.Name = "lNSIPath";
             this.lNSIPath.Size = new System.Drawing.Size(60, 18);
-            this.lNSIPath.Text = "НСИ";
+            this.lNSIPath.Text = "РќРЎР";
             // 
             // tDataPath
             // 
@@ -1246,7 +1248,7 @@ namespace SkladGP
             this.cbWaitSock.Name = "cbWaitSock";
             this.cbWaitSock.Size = new System.Drawing.Size(147, 20);
             this.cbWaitSock.TabIndex = 4;
-            this.cbWaitSock.Text = "Прием от сервера";
+            this.cbWaitSock.Text = "РџСЂРёРµРј РѕС‚ СЃРµСЂРІРµСЂР°";
             // 
             // tSrvParServPortM
             // 
@@ -1288,7 +1290,7 @@ namespace SkladGP
             this.lServPathApp.Location = new System.Drawing.Point(4, 4);
             this.lServPathApp.Name = "lServPathApp";
             this.lServPathApp.Size = new System.Drawing.Size(60, 18);
-            this.lServPathApp.Text = "Путь";
+            this.lServPathApp.Text = "РџСѓС‚СЊ";
             // 
             // lServ
             // 
@@ -1297,7 +1299,7 @@ namespace SkladGP
             this.lServ.Location = new System.Drawing.Point(4, 70);
             this.lServ.Name = "lServ";
             this.lServ.Size = new System.Drawing.Size(60, 18);
-            this.lServ.Text = "Сервер";
+            this.lServ.Text = "РЎРµСЂРІРµСЂ";
             // 
             // tSrvParServPort
             // 
@@ -1317,7 +1319,7 @@ namespace SkladGP
             this.lServPort.Location = new System.Drawing.Point(4, 92);
             this.lServPort.Name = "lServPort";
             this.lServPort.Size = new System.Drawing.Size(60, 18);
-            this.lServPort.Text = "Порты";
+            this.lServPort.Text = "РџРѕСЂС‚С‹";
             // 
             // tpParVvod
             // 
@@ -1329,7 +1331,7 @@ namespace SkladGP
             this.tpParVvod.Location = new System.Drawing.Point(4, 25);
             this.tpParVvod.Name = "tpParVvod";
             this.tpParVvod.Size = new System.Drawing.Size(224, 261);
-            this.tpParVvod.Text = "Ввод";
+            this.tpParVvod.Text = "Р’РІРѕРґ";
             // 
             // cbUseAdr4Doc
             // 
@@ -1338,7 +1340,7 @@ namespace SkladGP
             this.cbUseAdr4Doc.Name = "cbUseAdr4Doc";
             this.cbUseAdr4Doc.Size = new System.Drawing.Size(208, 20);
             this.cbUseAdr4Doc.TabIndex = 27;
-            this.cbUseAdr4Doc.Text = "Адреса в документальном";
+            this.cbUseAdr4Doc.Text = "РђРґСЂРµСЃР° РІ РґРѕРєСѓРјРµРЅС‚Р°Р»СЊРЅРѕРј";
             // 
             // cbWarnNewScan
             // 
@@ -1347,7 +1349,7 @@ namespace SkladGP
             this.cbWarnNewScan.Name = "cbWarnNewScan";
             this.cbWarnNewScan.Size = new System.Drawing.Size(210, 20);
             this.cbWarnNewScan.TabIndex = 25;
-            this.cbWarnNewScan.Text = "Запрос неоконченного ввода";
+            this.cbWarnNewScan.Text = "Р—Р°РїСЂРѕСЃ РЅРµРѕРєРѕРЅС‡РµРЅРЅРѕРіРѕ РІРІРѕРґР°";
             // 
             // pnFields
             // 
@@ -1374,14 +1376,14 @@ namespace SkladGP
             this.chbStartQ.Name = "chbStartQ";
             this.chbStartQ.Size = new System.Drawing.Size(145, 20);
             this.chbStartQ.TabIndex = 46;
-            this.chbStartQ.Text = "Сначала поддоны";
+            this.chbStartQ.Text = "РЎРЅР°С‡Р°Р»Р° РїРѕРґРґРѕРЅС‹";
             // 
             // lVesVar
             // 
             this.lVesVar.Location = new System.Drawing.Point(50, 74);
             this.lVesVar.Name = "lVesVar";
             this.lVesVar.Size = new System.Drawing.Size(158, 20);
-            this.lVesVar.Text = "% отклонения веса";
+            this.lVesVar.Text = "% РѕС‚РєР»РѕРЅРµРЅРёСЏ РІРµСЃР°";
             // 
             // tVesVar
             // 
@@ -1400,7 +1402,7 @@ namespace SkladGP
             this.chbChkMaxPoddon.Name = "chbChkMaxPoddon";
             this.chbChkMaxPoddon.Size = new System.Drawing.Size(201, 20);
             this.chbChkMaxPoddon.TabIndex = 38;
-            this.chbChkMaxPoddon.Text = "MAX отгрузка =  поддон";
+            this.chbChkMaxPoddon.Text = "MAX РѕС‚РіСЂСѓР·РєР° =  РїРѕРґРґРѕРЅ";
             // 
             // cbAfterScan
             // 
@@ -1408,7 +1410,7 @@ namespace SkladGP
             this.cbAfterScan.Name = "cbAfterScan";
             this.cbAfterScan.Size = new System.Drawing.Size(100, 20);
             this.cbAfterScan.TabIndex = 34;
-            this.cbAfterScan.Text = "Скан";
+            this.cbAfterScan.Text = "РЎРєР°РЅ";
             // 
             // lFieldVvod
             // 
@@ -1416,7 +1418,7 @@ namespace SkladGP
             this.lFieldVvod.Location = new System.Drawing.Point(4, 122);
             this.lFieldVvod.Name = "lFieldVvod";
             this.lFieldVvod.Size = new System.Drawing.Size(110, 20);
-            this.lFieldVvod.Text = "Поле ввода";
+            this.lFieldVvod.Text = "РџРѕР»Рµ РІРІРѕРґР°";
             // 
             // lVesType
             // 
@@ -1424,7 +1426,7 @@ namespace SkladGP
             this.lVesType.Location = new System.Drawing.Point(4, 7);
             this.lVesType.Name = "lVesType";
             this.lVesType.Size = new System.Drawing.Size(74, 20);
-            this.lVesType.Text = "Продукт";
+            this.lVesType.Text = "РџСЂРѕРґСѓРєС‚";
             // 
             // chbConfMest
             // 
@@ -1433,13 +1435,13 @@ namespace SkladGP
             this.chbConfMest.Name = "chbConfMest";
             this.chbConfMest.Size = new System.Drawing.Size(161, 20);
             this.chbConfMest.TabIndex = 18;
-            this.chbConfMest.Text = "Подтверждение мест";
+            this.chbConfMest.Text = "РџРѕРґС‚РІРµСЂР¶РґРµРЅРёРµ РјРµСЃС‚";
             // 
             // cmbMType
             // 
             this.cmbMType.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
-            this.cmbMType.Items.Add("Штучный");
-            this.cmbMType.Items.Add("Весовой");
+            this.cmbMType.Items.Add("РЁС‚СѓС‡РЅС‹Р№");
+            this.cmbMType.Items.Add("Р’РµСЃРѕРІРѕР№");
             this.cmbMType.Location = new System.Drawing.Point(82, 7);
             this.cmbMType.Name = "cmbMType";
             this.cmbMType.Size = new System.Drawing.Size(136, 21);
@@ -1453,18 +1455,18 @@ namespace SkladGP
             this.cbAvVvod.Name = "cbAvVvod";
             this.cbAvVvod.Size = new System.Drawing.Size(71, 20);
             this.cbAvVvod.TabIndex = 22;
-            this.cbAvVvod.Text = "Ввод";
+            this.cbAvVvod.Text = "Р’РІРѕРґ";
             // 
             // cmbField
             // 
             this.cmbField.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
-            this.cmbField.Items.Add("Код");
-            this.cmbField.Items.Add("Партия");
+            this.cmbField.Items.Add("РљРѕРґ");
+            this.cmbField.Items.Add("РџР°СЂС‚РёСЏ");
             this.cmbField.Items.Add("EAN");
-            this.cmbField.Items.Add("Дата");
-            this.cmbField.Items.Add("Мест");
-            this.cmbField.Items.Add("Емкость");
-            this.cmbField.Items.Add("Всего");
+            this.cmbField.Items.Add("Р”Р°С‚Р°");
+            this.cmbField.Items.Add("РњРµСЃС‚");
+            this.cmbField.Items.Add("Р•РјРєРѕСЃС‚СЊ");
+            this.cmbField.Items.Add("Р’СЃРµРіРѕ");
             this.cmbField.Location = new System.Drawing.Point(120, 122);
             this.cmbField.Name = "cmbField";
             this.cmbField.Size = new System.Drawing.Size(94, 21);
@@ -1478,7 +1480,7 @@ namespace SkladGP
             this.cbAvEdit.Name = "cbAvEdit";
             this.cbAvEdit.Size = new System.Drawing.Size(117, 20);
             this.cbAvEdit.TabIndex = 23;
-            this.cbAvEdit.Text = "Корректировка";
+            this.cbAvEdit.Text = "РљРѕСЂСЂРµРєС‚РёСЂРѕРІРєР°";
             // 
             // cbShiftOnly
             // 
@@ -1489,7 +1491,7 @@ namespace SkladGP
             this.cbShiftOnly.Name = "cbShiftOnly";
             this.cbShiftOnly.Size = new System.Drawing.Size(160, 20);
             this.cbShiftOnly.TabIndex = 22;
-            this.cbShiftOnly.Text = "Стрелки с Shift";
+            this.cbShiftOnly.Text = "РЎС‚СЂРµР»РєРё СЃ Shift";
             // 
             // tpParDoc
             // 
@@ -1512,7 +1514,7 @@ namespace SkladGP
             this.tpParDoc.Location = new System.Drawing.Point(4, 25);
             this.tpParDoc.Name = "tpParDoc";
             this.tpParDoc.Size = new System.Drawing.Size(224, 261);
-            this.tpParDoc.Text = "Док-ты";
+            this.tpParDoc.Text = "Р”РѕРє-С‚С‹";
             // 
             // cbIDByHand
             // 
@@ -1521,7 +1523,7 @@ namespace SkladGP
             this.cbIDByHand.Name = "cbIDByHand";
             this.cbIDByHand.Size = new System.Drawing.Size(174, 20);
             this.cbIDByHand.TabIndex = 70;
-            this.cbIDByHand.Text = "№ ID вводится";
+            this.cbIDByHand.Text = "в„– ID РІРІРѕРґРёС‚СЃСЏ";
             // 
             // cbUseFAddr
             // 
@@ -1530,7 +1532,7 @@ namespace SkladGP
             this.cbUseFAddr.Name = "cbUseFAddr";
             this.cbUseFAddr.Size = new System.Drawing.Size(134, 20);
             this.cbUseFAddr.TabIndex = 66;
-            this.cbUseFAddr.Text = "Фикс. адреса";
+            this.cbUseFAddr.Text = "Р¤РёРєСЃ. Р°РґСЂРµСЃР°";
             // 
             // cbConfScan
             // 
@@ -1540,7 +1542,7 @@ namespace SkladGP
             this.cbConfScan.Name = "cbConfScan";
             this.cbConfScan.Size = new System.Drawing.Size(203, 20);
             this.cbConfScan.TabIndex = 62;
-            this.cbConfScan.Text = "Подверждение скана";
+            this.cbConfScan.Text = "РџРѕРґРІРµСЂР¶РґРµРЅРёРµ СЃРєР°РЅР°";
             // 
             // cbChkOpr
             // 
@@ -1552,7 +1554,7 @@ namespace SkladGP
             this.cbChkOpr.Name = "cbChkOpr";
             this.cbChkOpr.Size = new System.Drawing.Size(203, 20);
             this.cbChkOpr.TabIndex = 58;
-            this.cbChkOpr.Text = "Проверка ячейки";
+            this.cbChkOpr.Text = "РџСЂРѕРІРµСЂРєР° СЏС‡РµР№РєРё";
             // 
             // cbSumVes
             // 
@@ -1561,7 +1563,7 @@ namespace SkladGP
             this.cbSumVes.Name = "cbSumVes";
             this.cbSumVes.Size = new System.Drawing.Size(176, 20);
             this.cbSumVes.TabIndex = 54;
-            this.cbSumVes.Text = "Весовой суммировать";
+            this.cbSumVes.Text = "Р’РµСЃРѕРІРѕР№ СЃСѓРјРјРёСЂРѕРІР°С‚СЊ";
             // 
             // cbAutoUpLoadOper
             // 
@@ -1573,7 +1575,7 @@ namespace SkladGP
             this.cbAutoUpLoadOper.Name = "cbAutoUpLoadOper";
             this.cbAutoUpLoadOper.Size = new System.Drawing.Size(203, 20);
             this.cbAutoUpLoadOper.TabIndex = 50;
-            this.cbAutoUpLoadOper.Text = "Автоотправка операций";
+            this.cbAutoUpLoadOper.Text = "РђРІС‚РѕРѕС‚РїСЂР°РІРєР° РѕРїРµСЂР°С†РёР№";
             // 
             // tReLogon
             // 
@@ -1591,7 +1593,7 @@ namespace SkladGP
             this.lReLogon.Location = new System.Drawing.Point(4, 112);
             this.lReLogon.Name = "lReLogon";
             this.lReLogon.Size = new System.Drawing.Size(161, 20);
-            this.lReLogon.Text = "Таймаут логона, мин";
+            this.lReLogon.Text = "РўР°Р№РјР°СѓС‚ Р»РѕРіРѕРЅР°, РјРёРЅ";
             // 
             // cbHidUpl
             // 
@@ -1601,7 +1603,7 @@ namespace SkladGP
             this.cbHidUpl.Name = "cbHidUpl";
             this.cbHidUpl.Size = new System.Drawing.Size(203, 20);
             this.cbHidUpl.TabIndex = 42;
-            this.cbHidUpl.Text = "Скрыть выгруженные";
+            this.cbHidUpl.Text = "РЎРєСЂС‹С‚СЊ РІС‹РіСЂСѓР¶РµРЅРЅС‹Рµ";
             this.cbHidUpl.CheckStateChanged += new System.EventHandler(this.cbHidUpl_CheckStateChanged);
             // 
             // tDays2Save
@@ -1620,7 +1622,7 @@ namespace SkladGP
             this.lTime2Store.Location = new System.Drawing.Point(4, 89);
             this.lTime2Store.Name = "lTime2Store";
             this.lTime2Store.Size = new System.Drawing.Size(161, 20);
-            this.lTime2Store.Text = "Актуальность данных";
+            this.lTime2Store.Text = "РђРєС‚СѓР°Р»СЊРЅРѕСЃС‚СЊ РґР°РЅРЅС‹С…";
             // 
             // cbKolFromZ
             // 
@@ -1628,21 +1630,21 @@ namespace SkladGP
             this.cbKolFromZ.Name = "cbKolFromZ";
             this.cbKolFromZ.Size = new System.Drawing.Size(176, 20);
             this.cbKolFromZ.TabIndex = 35;
-            this.cbKolFromZ.Text = "Количество из заявки";
+            this.cbKolFromZ.Text = "РљРѕР»РёС‡РµСЃС‚РІРѕ РёР· Р·Р°СЏРІРєРё";
             // 
             // cmbDocType
             // 
             this.cmbDocType.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
-            this.cmbDocType.Items.Add("Самовывоз");
-            this.cmbDocType.Items.Add("Центровывоз");
-            this.cmbDocType.Items.Add("Свод");
-            this.cmbDocType.Items.Add("Внутреннее");
-            this.cmbDocType.Items.Add("Счет");
-            this.cmbDocType.Items.Add("Инвентаризация");
-            this.cmbDocType.Items.Add("Поддоны");
-            this.cmbDocType.Items.Add("Забраковка");
-            this.cmbDocType.Items.Add("Приходный");
-            this.cmbDocType.Items.Add("Заказ");
+            this.cmbDocType.Items.Add("РЎР°РјРѕРІС‹РІРѕР·");
+            this.cmbDocType.Items.Add("Р¦РµРЅС‚СЂРѕРІС‹РІРѕР·");
+            this.cmbDocType.Items.Add("РЎРІРѕРґ");
+            this.cmbDocType.Items.Add("Р’РЅСѓС‚СЂРµРЅРЅРµРµ");
+            this.cmbDocType.Items.Add("РЎС‡РµС‚");
+            this.cmbDocType.Items.Add("РРЅРІРµРЅС‚Р°СЂРёР·Р°С†РёСЏ");
+            this.cmbDocType.Items.Add("РџРѕРґРґРѕРЅС‹");
+            this.cmbDocType.Items.Add("Р—Р°Р±СЂР°РєРѕРІРєР°");
+            this.cmbDocType.Items.Add("РџСЂРёС…РѕРґРЅС‹Р№");
+            this.cmbDocType.Items.Add("Р—Р°РєР°Р·");
             this.cmbDocType.Location = new System.Drawing.Point(118, 7);
             this.cmbDocType.Name = "cmbDocType";
             this.cmbDocType.Size = new System.Drawing.Size(100, 21);
@@ -1655,7 +1657,7 @@ namespace SkladGP
             this.lDocType.Location = new System.Drawing.Point(4, 7);
             this.lDocType.Name = "lDocType";
             this.lDocType.Size = new System.Drawing.Size(108, 20);
-            this.lDocType.Text = "Тип документа";
+            this.lDocType.Text = "РўРёРї РґРѕРєСѓРјРµРЅС‚Р°";
             // 
             // cbDocCtrl
             // 
@@ -1664,7 +1666,7 @@ namespace SkladGP
             this.cbDocCtrl.Name = "cbDocCtrl";
             this.cbDocCtrl.Size = new System.Drawing.Size(176, 20);
             this.cbDocCtrl.TabIndex = 19;
-            this.cbDocCtrl.Text = "Контроль при выгрузке";
+            this.cbDocCtrl.Text = "РљРѕРЅС‚СЂРѕР»СЊ РїСЂРё РІС‹РіСЂСѓР·РєРµ";
             // 
             // tpParSrvG
             // 
@@ -1678,7 +1680,7 @@ namespace SkladGP
             this.tpParSrvG.Location = new System.Drawing.Point(4, 25);
             this.tpParSrvG.Name = "tpParSrvG";
             this.tpParSrvG.Size = new System.Drawing.Size(224, 261);
-            this.tpParSrvG.Text = "Сервера";
+            this.tpParSrvG.Text = "РЎРµСЂРІРµСЂР°";
             // 
             // tSrvGName
             // 
@@ -1698,7 +1700,7 @@ namespace SkladGP
             this.lNewDel.Location = new System.Drawing.Point(3, 235);
             this.lNewDel.Name = "lNewDel";
             this.lNewDel.Size = new System.Drawing.Size(218, 18);
-            this.lNewDel.Text = "F8 - новый      F6 - удалить";
+            this.lNewDel.Text = "F8 - РЅРѕРІС‹Р№      F6 - СѓРґР°Р»РёС‚СЊ";
             this.lNewDel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // chSrvGActive
@@ -1709,7 +1711,7 @@ namespace SkladGP
             this.chSrvGActive.Name = "chSrvGActive";
             this.chSrvGActive.Size = new System.Drawing.Size(61, 20);
             this.chSrvGActive.TabIndex = 43;
-            this.chSrvGActive.Text = "Вкл";
+            this.chSrvGActive.Text = "Р’РєР»";
             // 
             // cmbHostG
             // 
@@ -1727,7 +1729,7 @@ namespace SkladGP
             this.lHostG.Location = new System.Drawing.Point(8, 8);
             this.lHostG.Name = "lHostG";
             this.lHostG.Size = new System.Drawing.Size(74, 20);
-            this.lHostG.Text = "Сервер";
+            this.lHostG.Text = "РЎРµСЂРІРµСЂ";
             // 
             // pnSrvs
             // 
@@ -1751,25 +1753,25 @@ namespace SkladGP
             this.chOperOn.Name = "chOperOn";
             this.chOperOn.Size = new System.Drawing.Size(108, 20);
             this.chOperOn.TabIndex = 51;
-            this.chOperOn.Text = "Включена";
+            this.chOperOn.Text = "Р’РєР»СЋС‡РµРЅР°";
             // 
             // lOper
             // 
             this.lOper.Location = new System.Drawing.Point(9, 97);
             this.lOper.Name = "lOper";
             this.lOper.Size = new System.Drawing.Size(81, 20);
-            this.lOper.Text = "Операция";
+            this.lOper.Text = "РћРїРµСЂР°С†РёСЏ";
             // 
             // comboBox2
             // 
             this.comboBox2.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
-            this.comboBox2.Items.Add("Справочники");
-            this.comboBox2.Items.Add("Инвентаризация");
-            this.comboBox2.Items.Add("Выгрузка - 3");
-            this.comboBox2.Items.Add("Загрузка  - 2");
-            this.comboBox2.Items.Add("Выгрузка - 2");
-            this.comboBox2.Items.Add("Прибытие");
-            this.comboBox2.Items.Add("Убытие");
+            this.comboBox2.Items.Add("РЎРїСЂР°РІРѕС‡РЅРёРєРё");
+            this.comboBox2.Items.Add("РРЅРІРµРЅС‚Р°СЂРёР·Р°С†РёСЏ");
+            this.comboBox2.Items.Add("Р’С‹РіСЂСѓР·РєР° - 3");
+            this.comboBox2.Items.Add("Р—Р°РіСЂСѓР·РєР°  - 2");
+            this.comboBox2.Items.Add("Р’С‹РіСЂСѓР·РєР° - 2");
+            this.comboBox2.Items.Add("РџСЂРёР±С‹С‚РёРµ");
+            this.comboBox2.Items.Add("РЈР±С‹С‚РёРµ");
             this.comboBox2.Location = new System.Drawing.Point(96, 97);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(108, 21);
@@ -1789,21 +1791,21 @@ namespace SkladGP
             this.lProfil.Location = new System.Drawing.Point(9, 69);
             this.lProfil.Name = "lProfil";
             this.lProfil.Size = new System.Drawing.Size(81, 20);
-            this.lProfil.Text = "Профиль";
+            this.lProfil.Text = "РџСЂРѕС„РёР»СЊ";
             // 
             // lConn
             // 
             this.lConn.Location = new System.Drawing.Point(9, 41);
             this.lConn.Name = "lConn";
             this.lConn.Size = new System.Drawing.Size(81, 20);
-            this.lConn.Text = "Соединение";
+            this.lConn.Text = "РЎРѕРµРґРёРЅРµРЅРёРµ";
             // 
             // lPort
             // 
             this.lPort.Location = new System.Drawing.Point(9, 16);
             this.lPort.Name = "lPort";
             this.lPort.Size = new System.Drawing.Size(37, 20);
-            this.lPort.Text = "Порт";
+            this.lPort.Text = "РџРѕСЂС‚";
             // 
             // tPortG
             // 
@@ -1818,7 +1820,7 @@ namespace SkladGP
             // cmbConn
             // 
             this.cmbConn.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
-            this.cmbConn.Items.Add("Любое");
+            this.cmbConn.Items.Add("Р›СЋР±РѕРµ");
             this.cmbConn.Items.Add("ActiveSync");
             this.cmbConn.Items.Add("Wi-Fi");
             this.cmbConn.Location = new System.Drawing.Point(96, 42);
@@ -1837,7 +1839,7 @@ namespace SkladGP
             this.tpTest.Location = new System.Drawing.Point(4, 25);
             this.tpTest.Name = "tpTest";
             this.tpTest.Size = new System.Drawing.Size(232, 291);
-            this.tpTest.Text = "Сервис";
+            this.tpTest.Text = "РЎРµСЂРІРёСЃ";
             // 
             // button1
             // 
@@ -1864,7 +1866,7 @@ namespace SkladGP
             this.btMem.Name = "btMem";
             this.btMem.Size = new System.Drawing.Size(72, 20);
             this.btMem.TabIndex = 15;
-            this.btMem.Text = "Память";
+            this.btMem.Text = "РџР°РјСЏС‚СЊ";
             this.btMem.Click += new System.EventHandler(this.btMem_Click);
             // 
             // btQuit
@@ -1873,7 +1875,7 @@ namespace SkladGP
             this.btQuit.Name = "btQuit";
             this.btQuit.Size = new System.Drawing.Size(72, 20);
             this.btQuit.TabIndex = 13;
-            this.btQuit.Text = "Выход";
+            this.btQuit.Text = "Р’С‹С…РѕРґ";
             this.btQuit.Click += new System.EventHandler(this.btQuit_Click_1);
             // 
             // button5
@@ -1919,7 +1921,7 @@ namespace SkladGP
             this.tVvod_SHTReg.TabIndex = 10;
             this.tVvod_SHTReg.TabStop = false;
             this.tVvod_SHTReg.Tag = "";
-            this.tVvod_SHTReg.Text = "Шт[С]";
+            this.tVvod_SHTReg.Text = "РЁС‚[РЎ]";
             this.tVvod_SHTReg.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.tVvod_SHTReg.Visible = false;
             // 
@@ -1966,7 +1968,7 @@ namespace SkladGP
             this.lFCgh.Location = new System.Drawing.Point(190, 78);
             this.lFCgh.Name = "lFCgh";
             this.lFCgh.Size = new System.Drawing.Size(30, 20);
-            this.lFCgh.Text = "ПС";
+            this.lFCgh.Text = "РџРЎ";
             this.lFCgh.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // lSrvGName
@@ -1977,7 +1979,7 @@ namespace SkladGP
             this.lSrvGName.Location = new System.Drawing.Point(10, 80);
             this.lSrvGName.Name = "lSrvGName";
             this.lSrvGName.Size = new System.Drawing.Size(54, 20);
-            this.lSrvGName.Text = "Сервер";
+            this.lSrvGName.Text = "РЎРµСЂРІРµСЂ";
             this.lSrvGName.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // tbPanP2G
@@ -1997,7 +1999,7 @@ namespace SkladGP
             this.lpnLoadInfG.Location = new System.Drawing.Point(1, 106);
             this.lpnLoadInfG.Name = "lpnLoadInfG";
             this.lpnLoadInfG.Size = new System.Drawing.Size(225, 16);
-            this.lpnLoadInfG.Text = "<Enter> - начать";
+            this.lpnLoadInfG.Text = "<Enter> - РЅР°С‡Р°С‚СЊ";
             this.lpnLoadInfG.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // lFuncNamePanG
@@ -2008,8 +2010,17 @@ namespace SkladGP
             this.lFuncNamePanG.Location = new System.Drawing.Point(13, 1);
             this.lFuncNamePanG.Name = "lFuncNamePanG";
             this.lFuncNamePanG.Size = new System.Drawing.Size(200, 20);
-            this.lFuncNamePanG.Text = "Загрузка документов";
+            this.lFuncNamePanG.Text = "Р—Р°РіСЂСѓР·РєР° РґРѕРєСѓРјРµРЅС‚РѕРІ";
             this.lFuncNamePanG.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // lTime2Load
+            // 
+            this.lTime2Load.BackColor = System.Drawing.Color.Lavender;
+            this.lTime2Load.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.lTime2Load.Location = new System.Drawing.Point(157, 101);
+            this.lTime2Load.Name = "lTime2Load";
+            this.lTime2Load.Size = new System.Drawing.Size(72, 18);
+            this.lTime2Load.Text = "18:35/26.09";
             // 
             // MainF
             // 
@@ -2025,7 +2036,7 @@ namespace SkladGP
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.KeyPreview = true;
             this.Name = "MainF";
-            this.Text = "1-Форма-2";
+            this.Text = "1-Р¤РѕСЂРјР°-2";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);
             this.Closing += new System.ComponentModel.CancelEventHandler(this.Form1_Closing);
@@ -2212,6 +2223,7 @@ namespace SkladGP
         private System.Windows.Forms.Label lDocInfSSCC;
         private System.Windows.Forms.DataGrid dgSSCC;
         private System.Windows.Forms.Label lSSCCState;
+        private System.Windows.Forms.Label lTime2Load;
     }
 }
 

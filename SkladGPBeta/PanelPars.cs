@@ -1,4 +1,4 @@
-using System;
+п»їusing System;
 using System.Collections.Generic;
 using System.Text;
 using System.Drawing;
@@ -22,28 +22,28 @@ namespace SkladGP
 
         
         private DocPars
-            xDP;                // текущие параметры (при редактировании)
+            xDP;                // С‚РµРєСѓС‰РёРµ РїР°СЂР°РјРµС‚СЂС‹ (РїСЂРё СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёРё)
 
-        // текущая функция 
+        // С‚РµРєСѓС‰Р°СЏ С„СѓРЅРєС†РёСЏ 
         private int nCurFunc;
 
-        // значения типа документа до редактирования
+        // Р·РЅР°С‡РµРЅРёСЏ С‚РёРїР° РґРѕРєСѓРјРµРЅС‚Р° РґРѕ СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёСЏ
         private int nTypDOld;
 
-        // флаг работы с параметрами
+        // С„Р»Р°Рі СЂР°Р±РѕС‚С‹ СЃ РїР°СЂР°РјРµС‚СЂР°РјРё
         private bool bWorkWithDocPars = false;
 
-        // флаг завершения ввода
+        // С„Р»Р°Рі Р·Р°РІРµСЂС€РµРЅРёСЏ РІРІРѕРґР°
         //private bool bQuitEdPars = false;
                 
         private BarcodeScanner.BarcodeScanEventHandler ehParScan;
 
-        // предыдущий обработчик клавиатуры
+        // РїСЂРµРґС‹РґСѓС‰РёР№ РѕР±СЂР°Р±РѕС‚С‡РёРє РєР»Р°РІРёР°С‚СѓСЂС‹
         Srv.CurrFuncKeyHandler oldKeyH;
 
 
 
-        // с какого поля начать: первого доступного или первого пустого
+        // СЃ РєР°РєРѕРіРѕ РїРѕР»СЏ РЅР°С‡Р°С‚СЊ: РїРµСЂРІРѕРіРѕ РґРѕСЃС‚СѓРїРЅРѕРіРѕ РёР»Рё РїРµСЂРІРѕРіРѕ РїСѓСЃС‚РѕРіРѕ
         public enum CTRL1ST : int
         {
             START_AVAIL = 1,
@@ -57,7 +57,7 @@ namespace SkladGP
             if ((e.nID != BCId.NoData) && (bEditMode == true))
             {
                 if ((e.nID == BCId.Code128) && (e.Data.Length == 14))
-                {// Путевой лист или ТТН
+                {// РџСѓС‚РµРІРѕР№ Р»РёСЃС‚ РёР»Рё РўРўРќ
                     if (tNom_p.Enabled)
                         tNom_p.Text = e.Data.Substring(7);
                 }
@@ -65,7 +65,7 @@ namespace SkladGP
         }
 
 
-        // вход в режим ввода/корректировки параметров
+        // РІС…РѕРґ РІ СЂРµР¶РёРј РІРІРѕРґР°/РєРѕСЂСЂРµРєС‚РёСЂРѕРІРєРё РїР°СЂР°РјРµС‚СЂРѕРІ
         public void EditPars(int nReg, DocPars x, CTRL1ST FirstEd, AppC.VerifyEditFields dgVer, EditParsOver dgEnd)
         {
             xDP = x;
@@ -89,7 +89,32 @@ namespace SkladGP
             }
         }
 
-        // сброс/установка полей ввода/вывода
+        // СѓСЃС‚Р°РЅРѕРІРєР° РІСЂРµРјРµРЅРё РїСЂРёР±С‹С‚РёСЏ
+        private void SetTime2Load()
+        {
+            string
+                sT = "";
+            DateTime
+                dtP;
+            try
+            {
+                dtP = 
+                DateTime.ParseExact((string)xCDoc.drCurRow["DTPRIB"], "dd.MM.yyyy HH:mm", null);
+                sT = dtP.ToString("HH:mm");
+                if (dtP.DayOfYear != DateTime.Now.DayOfYear)
+                {
+                    sT += String.Format("/{0}", dtP.Day);
+                }
+            }
+            catch
+            {
+                sT = "";
+            }
+            lTime2Load.Text = sT;
+
+        }
+
+        // СЃР±СЂРѕСЃ/СѓСЃС‚Р°РЅРѕРІРєР° РїРѕР»РµР№ РІРІРѕРґР°/РІС‹РІРѕРґР°
         private void SetParFields(DocPars xDP)
         {
             int 
@@ -99,7 +124,7 @@ namespace SkladGP
 
             DocPars.tKTyp.Text = (n == AppC.EMPTY_INT) ? "" : xDP.nTypD.ToString();
             sIS = DocPars.TypDName(n);
-            DocPars.tNTyp.Text = (sIS.Length > 0) ? sIS : "<Неизвестный>";
+            DocPars.tNTyp.Text = (sIS.Length > 0) ? sIS : "<РќРµРёР·РІРµСЃС‚РЅС‹Р№>";
             xDP.sTypD = DocPars.tNTyp.Text;
 
             tSm_p.Text = xDP.sSmena;
@@ -182,9 +207,10 @@ namespace SkladGP
             }
             else
                 xDP.sPol = "";
+            SetTime2Load();
         }
 
-        // куда поставить фокус ввода на панели
+        // РєСѓРґР° РїРѕСЃС‚Р°РІРёС‚СЊ С„РѕРєСѓСЃ РІРІРѕРґР° РЅР° РїР°РЅРµР»Рё
         private Control Where1Empty()
         {
             Control cRet = null;
@@ -197,7 +223,7 @@ namespace SkladGP
             return (cRet);
         }
 
-        // завершение режима ввода/корректировки параметров
+        // Р·Р°РІРµСЂС€РµРЅРёРµ СЂРµР¶РёРјР° РІРІРѕРґР°/РєРѕСЂСЂРµРєС‚РёСЂРѕРІРєРё РїР°СЂР°РјРµС‚СЂРѕРІ
         public void EndEditPars(int nKey)
         {
             int nRet = (nKey == W32.VK_ENTER) ? AppC.RC_OK : AppC.RC_CANCEL;
@@ -213,7 +239,7 @@ namespace SkladGP
             dgOver(nRet, nCurFunc);
         }
 
-        // проверка склада
+        // РїСЂРѕРІРµСЂРєР° СЃРєР»Р°РґР°
         private void tKSkl_p_Validating(object sender, CancelEventArgs e)
         {
             string 
@@ -252,7 +278,7 @@ namespace SkladGP
             }
         }
 
-        // проверка участка
+        // РїСЂРѕРІРµСЂРєР° СѓС‡Р°СЃС‚РєР°
         private void tKUch_p_Validating(object sender, CancelEventArgs e)
         {
             string sT = ((TextBox)sender).Text.Trim();
@@ -279,7 +305,7 @@ namespace SkladGP
             //    e.Cancel = !ServClass.TryEditNextFiled((Control)sender, nCurEditCommand, aEdVvod);
         }
 
-        // проверка даты
+        // РїСЂРѕРІРµСЂРєР° РґР°С‚С‹
         private void tDateD_p_Validating(object sender, CancelEventArgs e)
         {
             string sD = ((TextBox)sender).Text.Trim();
@@ -301,7 +327,7 @@ namespace SkladGP
                 xDP.dDatDoc = DateTime.MinValue;
         }
 
-        // проверка смены
+        // РїСЂРѕРІРµСЂРєР° СЃРјРµРЅС‹
         private void tSm_p_Validating(object sender, CancelEventArgs e)
         {
             string sT = ((TextBox)sender).Text.Trim();
@@ -313,18 +339,18 @@ namespace SkladGP
             xDP.sSmena = sT;
         }
 
-        // сохранение предыдущего значения типа документа
+        // СЃРѕС…СЂР°РЅРµРЅРёРµ РїСЂРµРґС‹РґСѓС‰РµРіРѕ Р·РЅР°С‡РµРЅРёСЏ С‚РёРїР° РґРѕРєСѓРјРµРЅС‚Р°
         private void SaveOldTyp(object sender, EventArgs e)
         {
             ((TextBox)sender).SelectAll();
             nTypDOld = xDP.nTypD;
         }
 
-        // изменение типа, вывод нименования
+        // РёР·РјРµРЅРµРЅРёРµ С‚РёРїР°, РІС‹РІРѕРґ РЅРёРјРµРЅРѕРІР°РЅРёСЏ
         private void tKT_p_TextChanged(object sender, EventArgs e)
         {
             if (bWorkWithDocPars == true)
-            {// при просмотре не проверяется
+            {// РїСЂРё РїСЂРѕСЃРјРѕС‚СЂРµ РЅРµ РїСЂРѕРІРµСЂСЏРµС‚СЃСЏ
                 int nTD = AppC.EMPTY_INT;
                 string s = "";
 
@@ -338,7 +364,7 @@ namespace SkladGP
                 if (s.Length == 0)
                 {
                     xDP.nTypD = AppC.EMPTY_INT;
-                    s = "<Неизвестный>";
+                    s = "<РќРµРёР·РІРµСЃС‚РЅС‹Р№>";
                 }
                 else
                 {
@@ -351,7 +377,7 @@ namespace SkladGP
 
 
 
-        // проверка типа
+        // РїСЂРѕРІРµСЂРєР° С‚РёРїР°
         private void tKT_p_Validating(object sender, CancelEventArgs e)
         {
             if (xDP.nTypD == AppC.EMPTY_INT)
@@ -362,13 +388,13 @@ namespace SkladGP
             else
             {
                 if (xDP.nTypD != nTypDOld)
-                {// сменился тип документа
+                {// СЃРјРµРЅРёР»СЃСЏ С‚РёРї РґРѕРєСѓРјРµРЅС‚Р°
                 }
             }
 
         }
 
-        // тип документа все-таки сменился
+        // С‚РёРї РґРѕРєСѓРјРµРЅС‚Р° РІСЃРµ-С‚Р°РєРё СЃРјРµРЅРёР»СЃСЏ
         private void tKT_p_Validated(object sender, EventArgs e)
         {
             int i;
@@ -408,7 +434,7 @@ namespace SkladGP
 
 
 
-        // проверка номера документа
+        // РїСЂРѕРІРµСЂРєР° РЅРѕРјРµСЂР° РґРѕРєСѓРјРµРЅС‚Р°
         private void tNom_p_Validating(object sender, CancelEventArgs e)
         {
             string sT = ((TextBox)sender).Text.Trim();
@@ -426,7 +452,7 @@ namespace SkladGP
             //    e.Cancel = !ServClass.TryEditNextFiled((Control)sender, nCurEditCommand, aEdVvod);
         }
 
-        // проверка экспедитора
+        // РїСЂРѕРІРµСЂРєР° СЌРєСЃРїРµРґРёС‚РѕСЂР°
         private void tKEks_p_Validating(object sender, CancelEventArgs e)
         {
             string sT = ((TextBox)sender).Text.Trim();
@@ -475,7 +501,7 @@ namespace SkladGP
 
         }
 
-        // проверка получателя
+        // РїСЂРѕРІРµСЂРєР° РїРѕР»СѓС‡Р°С‚РµР»СЏ
         private void tKPol_p_Validating(object sender, CancelEventArgs e)
         {
             NSI.RezSrch 
@@ -524,7 +550,7 @@ namespace SkladGP
 
 
 
-        // обработка функций и клавиш на панели
+        // РѕР±СЂР°Р±РѕС‚РєР° С„СѓРЅРєС†РёР№ Рё РєР»Р°РІРёС€ РЅР° РїР°РЅРµР»Рё
         private bool PPars_KeyDown(object nF, KeyEventArgs e, ref Srv.CurrFuncKeyHandler kh)
         {
             int nFunc = (int)nF;
@@ -568,7 +594,7 @@ namespace SkladGP
 
 
 
-        // создание массива управления редактированием полей
+        // СЃРѕР·РґР°РЅРёРµ РјР°СЃСЃРёРІР° СѓРїСЂР°РІР»РµРЅРёСЏ СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёРµРј РїРѕР»РµР№
         private void BeginEditPars(CTRL1ST FirstEd, AppC.VerifyEditFields dgV)
         {
             int i;
@@ -581,7 +607,7 @@ namespace SkladGP
 
             //bSklU = (xSm.RegApp == AppC.REG_OPR) ? false : true;
 
-            // для загрузки/выгрузки - доступно все для любых режимов
+            // РґР»СЏ Р·Р°РіСЂСѓР·РєРё/РІС‹РіСЂСѓР·РєРё - РґРѕСЃС‚СѓРїРЅРѕ РІСЃРµ РґР»СЏ Р»СЋР±С‹С… СЂРµР¶РёРјРѕРІ
             bSklU = (((nCurFunc == AppC.F_ADD_REC)||(nCurFunc == AppC.F_CHG_REC)) && (xDP.nTypD == AppC.TYPD_OPR)) ? false : true;
 
             aEdVvod.AddC(tKSkl_p, bSklU);
@@ -596,13 +622,13 @@ namespace SkladGP
             aEdVvod.AddC(tKEks_p, bEksEn);
             aEdVvod.AddC(tKPol_p, bPolEn);
 
-            // по умолчанию - с первого доступного
+            // РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ - СЃ РїРµСЂРІРѕРіРѕ РґРѕСЃС‚СѓРїРЅРѕРіРѕ
             Control 
                 xC = null, 
                 xEnbF = null,
                 xEnbL = null;
 
-            // установка доступных
+            // СѓСЃС‚Р°РЅРѕРІРєР° РґРѕСЃС‚СѓРїРЅС‹С…
             for (i = 0; i < aEdVvod.Count; i++)
             {
                 if (aEdVvod[i].Enabled)
